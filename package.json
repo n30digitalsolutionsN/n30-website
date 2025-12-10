@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@portabletext/react": "^6.0.0",
     "@sanity/structure": "^2.36.2",
     "@sanity/vision": "^4.21.0",
     "jsdom": "^27.3.0",

@@ -1,82 +1,58 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { FaCalendar, FaUser } from 'react-icons/fa';
+import { client } from '@/lib/sanity.client';
+
+interface BlogPost {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  _updatedAt: string;
+  content?: any[];
+}
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: '10 Web Design Trends in 2024',
-      summary: 'Explore the latest web design trends that are shaping the digital landscape this year.',
-      author: 'Emily Rodriguez',
-      date: 'Dec 5, 2024',
-      category: 'Design',
-      slug: 'web-design-trends-2024',
-    },
-    {
-      id: 2,
-      title: 'How to Optimize Your Website for Speed',
-      summary: 'Learn proven strategies to improve your website performance and user experience.',
-      author: 'David Chen',
-      date: 'Dec 1, 2024',
-      category: 'Development',
-      slug: 'optimize-website-speed',
-    },
-    {
-      id: 3,
-      title: 'The Future of E-Commerce',
-      summary: 'Understanding AI, personalization, and the next generation of online shopping.',
-      author: 'Sarah Williams',
-      date: 'Nov 28, 2024',
-      category: 'Strategy',
-      slug: 'future-ecommerce',
-    },
-    {
-      id: 4,
-      title: 'Mobile-First Design: Why It Matters',
-      summary: 'Discover why mobile-first approach is crucial for your digital strategy.',
-      author: 'Emily Rodriguez',
-      date: 'Nov 25, 2024',
-      category: 'Design',
-      slug: 'mobile-first-design',
-    },
-    {
-      id: 5,
-      title: 'SEO Best Practices Guide',
-      summary: 'A comprehensive guide to improving your search engine rankings organically.',
-      author: 'Alex Johnson',
-      date: 'Nov 20, 2024',
-      category: 'Marketing',
-      slug: 'seo-best-practices',
-    },
-    {
-      id: 6,
-      title: 'Building Secure Web Applications',
-      summary: 'Essential security practices every web developer should know.',
-      author: 'David Chen',
-      date: 'Nov 15, 2024',
-      category: 'Development',
-      slug: 'secure-web-apps',
-    },
-  ];
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const query = `
+          *[_type == "post"] | order(publishedAt desc) {
+            _id,
+            title,
+            slug,
+            publishedAt,
+            content
+          }
+        `;
+        const data = await client.fetch(query);
+        setPosts(data);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   const filteredPosts = useMemo(() => {
-    return blogPosts.filter(
+    return posts.filter(
       (post) =>
-        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.category.toLowerCase().includes(searchTerm.toLowerCase())
+        post.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  }, [searchTerm]);
+  }, [posts, searchTerm]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
       {/* Hero Section */}
-      <section className="pt-20 pb-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="pt-20 pb-20 px-4 bg-linear-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Blog</h1>
           <p className="text-xl md:text-2xl text-blue-50">
@@ -98,6 +74,49 @@ export default function Blog() {
             />
             <span className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
           </div>
+        </div>
+      </section>
+
+      {/* Blog Posts Grid */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-4xl">
+          {loading ? (
+            <div className="text-center py-12">
+              <p className="text-xl text-gray-600">Loading blog posts...</p>
+            </div>
+          ) : filteredPosts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-xl text-gray-600">
+                {posts.length === 0 ? 'No blog posts yet. Check back soon!' : 'No posts match your search.'}
+              </p>
+            </div>
+          ) : (
+            <div className="grid gap-8">
+              {filteredPosts.map((post) => (
+                <Link key={post._id} href={`/blog/${post.slug.current}`}>
+                  <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-8 cursor-pointer">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4 hover:text-blue-600 transition-colors">
+                      {post.title}
+                    </h2>
+                    <div className="flex flex-col sm:flex-row gap-4 text-gray-600 mb-6">
+                      <div className="flex items-center gap-2">
+                        <FaCalendar />
+                        <span>{new Date(post.publishedAt || post._updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                      </div>
+                    </div>
+                    <div className="text-gray-700 line-clamp-2">
+                      {post.content ? 'Read more...' : 'No preview available'}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
           {searchTerm && (
             <p className="mt-4 text-gray-600">
               Found {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''} matching "{searchTerm}"

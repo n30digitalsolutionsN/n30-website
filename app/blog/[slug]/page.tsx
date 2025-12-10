@@ -1,53 +1,200 @@
 'use client';
 
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { FaCalendar, FaUser, FaShare, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { FaCalendar, FaShare, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { client } from '@/lib/sanity.client';
+import { PortableText } from '@portabletext/react';
+
+interface BlogPost {
+  title: string;
+  slug: { current: string };
+  content: any[];
+  publishedAt: string;
+  _id: string;
+}
+
+const portableTextComponents = {
+  types: {
+    block: ({ value }: any) => {
+      const style = value.style || 'normal';
+
+      if (style === 'h1') {
+        return <h1 className="text-4xl font-bold my-6 text-gray-900">{value.children.map((child: any) => child.text).join('')}</h1>;
+      }
+      if (style === 'h2') {
+        return <h2 className="text-3xl font-bold my-5 text-gray-900">{value.children.map((child: any) => child.text).join('')}</h2>;
+      }
+      if (style === 'h3') {
+        return <h3 className="text-2xl font-bold my-4 text-gray-900">{value.children.map((child: any) => child.text).join('')}</h3>;
+      }
+      return (
+        <p className="text-gray-700 leading-relaxed my-4">
+          {value.children.map((child: any, idx: number) => (
+            <span key={idx}>
+              {child.marks?.includes('strong') ? <strong>{child.text}</strong> : child.text}
+              {child.marks?.includes('em') ? <em>{child.text}</em> : null}
+            </span>
+          ))}
+        </p>
+      );
+    },
+  },
+};
 
 export default function BlogPost() {
   const params = useParams();
-  const slug = params.slug;
+  const router = useRouter();
+  const slug = params.slug as string;
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
-  // Sample blog posts data
-  const blogPosts: { [key: string]: any } = {
-    'web-design-trends-2024': {
-      title: '10 Web Design Trends in 2024',
-      author: 'Emily Rodriguez',
-      date: 'December 5, 2024',
-      category: 'Design',
-      image: '🎨',
-      content: `
-        Web design is constantly evolving, and 2024 is bringing some exciting new trends. In this article, we'll explore the top 10 web design trends that are shaping the digital landscape.
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const query = `
+          *[_type == "post" && slug.current == $slug][0] {
+            _id,
+            title,
+            slug,
+            content,
+            publishedAt
+          }
+        `;
+        const data = await client.fetch(query, { slug });
 
-        ## 1. Dark Mode Everything
-        Dark mode has become more than just a trend—it's now an expectation. Users appreciate the reduced eye strain and extended battery life on mobile devices.
+        if (!data) {
+          setNotFound(true);
+        } else {
+          setPost(data);
+        }
+      } catch (error) {
+        console.error('Error fetching post:', error);
+        setNotFound(true);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-        ## 2. Minimalist Design
-        Less is more. Clean, minimalist designs are continuing to dominate the web, focusing on whitespace and essential elements.
+    fetchPost();
+  }, [slug]);
 
-        ## 3. Micro-interactions
-        Small animations and interactions are enhancing user experience without being overwhelming. These micro-interactions guide users and provide feedback.
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-linear-to-br from-slate-50 to-gray-100 pt-20 px-4">
+        <div className="container mx-auto max-w-4xl text-center">
+          <p className="text-xl text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
-        ## 4. 3D Elements
-        With improved browser support, 3D graphics and animations are becoming more common in web design, creating immersive experiences.
+  if (notFound || !post) {
+    return (
+      <div className="min-h-screen bg-linear-to-br from-slate-50 to-gray-100 pt-20 px-4">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-6">Article Not Found</h1>
+          <p className="text-lg text-gray-600 mb-8">The article you're looking for doesn't exist.</p>
+          <Link
+            href="/blog"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-colors inline-block"
+          >
+            Back to Blog
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
-        ## 5. Sustainable Web Design
-        Companies are increasingly conscious of their digital carbon footprint, leading to more sustainable and efficient web design practices.
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const shareTitle = post.title;
 
-        ## Conclusion
-        These trends reflect a broader movement toward more user-centric, efficient, and engaging web design. Keep these in mind as you plan your next digital project!
-      `,
-    },
-    'optimize-website-speed': {
-      title: 'How to Optimize Your Website for Speed',
-      author: 'David Chen',
-      date: 'December 1, 2024',
-      category: 'Development',
-      image: '⚡',
-      content: `
-        Website speed is crucial for user experience and SEO rankings. In this guide, we'll cover proven strategies to improve your website's performance.
+  return (
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-gray-100">
+      {/* Header */}
+      <section className="pt-20 pb-12 px-4 bg-linear-to-r from-blue-600 to-purple-600 text-white">
+        <div className="container mx-auto max-w-4xl">
+          <Link href="/blog" className="text-blue-100 hover:text-white transition-colors mb-6 inline-block">
+            ← Back to Blog
+          </Link>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">{post.title}</h1>
+          <div className="flex flex-col sm:flex-row gap-6 text-blue-100">
+            <div className="flex items-center gap-2">
+              <FaCalendar />
+              <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        ## Why Speed Matters
+      {/* Content */}
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-4xl">
+          <article className="prose prose-lg max-w-none">
+            <div className="text-gray-700 leading-relaxed">
+              {post.content ? (
+                <PortableText value={post.content} components={portableTextComponents} />
+              ) : (
+                <p>No content available</p>
+              )}
+            </div>
+          </article>
+
+          {/* Share Buttons */}
+          <div className="mt-12 pt-8 border-t">
+            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <FaShare /> Share This Article
+            </h3>
+            <div className="flex gap-4 flex-wrap">
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-colors flex items-center gap-2"
+              >
+                <FaFacebook /> Share on Facebook
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareTitle)}&url=${encodeURIComponent(shareUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-bold transition-colors flex items-center gap-2"
+              >
+                <FaTwitter /> Share on Twitter
+              </a>
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-bold transition-colors flex items-center gap-2"
+              >
+                <FaLinkedin /> Share on LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-linear-to-r from-blue-600 to-purple-600 text-white">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+          <p className="text-xl mb-8 text-blue-50">
+            Let's discuss how we can help you achieve your digital goals
+          </p>
+          <Link
+            href="/contact"
+            className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-block"
+          >
+            Schedule Consultation
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}
         Studies show that users abandon websites that take more than 3 seconds to load. A faster website leads to better engagement, conversion rates, and search rankings.
 
         ## Image Optimization
