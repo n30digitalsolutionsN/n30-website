@@ -25,14 +25,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <Image 
-              src="/logo.png" 
-              alt="N30 Digital Solutions" 
-              width={50}
-              height={50}
-              priority
-              className="h-10 w-10 object-contain"
-            />
+         <Image 
+  src="/logo.png" 
+  alt="N30 Digital Solutions" 
+  width={300}
+  height={240}
+  priority
+  className="h-10 w-10 object-contain"
+/>
             <div className="hidden md:flex flex-col">
               <span className="font-bold text-gray-900 text-sm leading-tight">N30 Digital</span>
               <span className="text-xs text-gray-500">Solutions</span>
