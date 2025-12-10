@@ -49,7 +49,7 @@ export default function Blog() {
     );
   }, [posts, searchTerm]);
 
-  const calculateReadingTime = (content: any[]): number => {
+  const calculateReadingTime = (content: any[] | undefined): number => {
     if (!content) return 0;
     const text = content
       .map((block: any) => {
