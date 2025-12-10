@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,9 +25,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-linear-to-br from-blue-700 to-blue-500 rounded-lg flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-lg">N30</span>
-            </div>
+            <Image 
+              src="/logo.png" 
+              alt="N30 Digital Solutions" 
+              width={50}
+              height={50}
+              priority
+              className="h-10 w-10 object-contain"
+            />
             <div className="hidden md:flex flex-col">
               <span className="font-bold text-gray-900 text-sm leading-tight">N30 Digital</span>
               <span className="text-xs text-gray-500">Solutions</span>
