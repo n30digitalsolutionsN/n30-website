@@ -24,18 +24,18 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-3 group">
          <Image 
   src="/logo.png" 
   alt="N30 Digital Solutions" 
   width={300}
   height={240}
   priority
-  className="h-10 w-10 object-contain"
+  className="h-16 w-16 object-contain"
 />
             <div className="hidden md:flex flex-col">
-              <span className="font-bold text-gray-900 text-sm leading-tight">N30 Digital</span>
-              <span className="text-xs text-gray-500">Solutions</span>
+              <span className="font-bold text-gray-900 text-lg leading-tight">N30 Digital</span>
+              <span className="text-sm text-gray-500">Solutions</span>
             </div>
           </Link>
 
