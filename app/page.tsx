@@ -1,28 +1,31 @@
 'use client';
 
 import Link from 'next/link';
-import { FaCode, FaShoppingCart, FaDesktop, FaStar, FaCheckCircle } from 'react-icons/fa';
 
 export default function Home() {
   const services = [
     {
       id: 1,
       title: 'Web Design',
-      description: 'Beautiful, modern website designs that captivate your audience and convert visitors into customers.',
-      icon: FaDesktop,
+      description: 'Professional website designs that capture your brand identity and convert visitors into customers.',
     },
     {
       id: 2,
       title: 'Web Development',
-      description: 'Robust, scalable web applications built with the latest technologies and best practices.',
-      icon: FaCode,
+      description: 'High-performance web applications built with cutting-edge technology and industry best practices.',
     },
     {
       id: 3,
       title: 'E-Commerce Solutions',
-      description: 'Complete online store setup with payment integration, inventory management, and analytics.',
-      icon: FaShoppingCart,
+      description: 'Complete online store solutions with secure payments, inventory management, and analytics.',
     },
+  ];
+
+  const stats = [
+    { number: '10+', label: 'Years in Business' },
+    { number: '300+', label: 'Projects Completed' },
+    { number: '250+', label: 'Happy Clients' },
+    { number: '98%', label: 'Client Retention' },
   ];
 
   const testimonials = [
@@ -30,49 +33,47 @@ export default function Home() {
       id: 1,
       name: 'John Smith',
       company: 'Tech Startup Inc',
-      quote: 'N30 Digital transformed our online presence. Our website traffic increased by 300% in just 3 months!',
-      rating: 5,
+      quote: 'N30 Digital transformed our online presence. Our website traffic increased by 300% in just 3 months.',
     },
     {
       id: 2,
       name: 'Sarah Johnson',
       company: 'E-Commerce Pro',
-      quote: 'Outstanding service and support. The team went above and beyond to deliver our project on time.',
-      rating: 5,
+      quote: 'Outstanding service and support. The team delivered our project on time and exceeded expectations.',
     },
     {
       id: 3,
       name: 'Michael Brown',
       company: 'Digital Marketing Agency',
-      quote: 'Best decision we made for our business. Highly recommend N30 Digital to anyone.',
-      rating: 5,
+      quote: 'Best decision we made for our business. Highly recommend N30 Digital to any organization.',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-20 pb-20 px-4">
+      <section className="pt-32 pb-24 px-4 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900 leading-tight">
-            Transform Your Business with{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Digital Innovation
-            </span>
+          <span className="inline-block bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide">Digital Solutions</span>
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 text-gray-900 leading-tight">
+            Transform Your Business with <span className="text-blue-600">Digital Excellence</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            We create beautiful, powerful digital solutions that help your business grow and thrive in the modern marketplace.
+          
+          <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            We deliver comprehensive digital solutions that drive business growth, enhance customer experiences, and position your organization for long-term success.
           </p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/services"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-block"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-center"
             >
-              View Our Services
+              Explore Services
             </Link>
             <Link
               href="/contact"
-              className="bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-block"
+              className="bg-gray-100 hover:bg-gray-200 text-gray-900 px-8 py-3.5 rounded-lg font-semibold transition-all duration-300 text-center"
             >
               Schedule Consultation
             </Link>
@@ -80,76 +81,100 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Overview Section */}
-      <section className="py-20 px-4 bg-white">
+      {/* Stats Section */}
+      <section className="py-16 px-4 bg-gray-50 border-y border-gray-200">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="text-center">
+                <div className="text-4xl md:text-5xl font-black text-blue-600 mb-2">{stat.number}</div>
+                <p className="text-gray-700 font-medium text-sm md:text-base">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We offer comprehensive digital solutions tailored to your business needs
+            <span className="inline-block bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 uppercase tracking-wide">Our Services</span>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">What We Offer</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Comprehensive digital solutions tailored to your business needs
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service) => {
-              const IconComponent = service.icon;
-              return (
-                <div
-                  key={service.id}
-                  className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow"
-                >
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mb-6">
-                    <IconComponent size={32} className="text-white" />
+            {services.map((service) => (
+              <div
+                key={service.id}
+                className="bg-white rounded-xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 group"
+              >
+                <div className="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+                  <div className="text-3xl text-blue-600">
+                    {service.id === 1 && '✦'}
+                    {service.id === 2 && '⚡'}
+                    {service.id === 3 && '💼'}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
-                  <Link
-                    href="/services"
-                    className="text-blue-600 hover:text-blue-700 font-bold flex items-center gap-2"
-                  >
-                    Learn More →
-                  </Link>
                 </div>
-              );
-            })}
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                <Link
+                  href="/services"
+                  className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                >
+                  Learn more →
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-purple-50">
+      <section className="py-24 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About N30 Digital Solutions</h2>
-              <p className="text-lg text-gray-700 mb-6">
-                We are a team of passionate digital experts dedicated to transforming businesses through innovative technology solutions. With over 10 years of combined experience, we've helped hundreds of companies achieve their digital goals.
+              <span className="inline-block bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide">About Us</span>
+              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Your Trusted Digital Partner</h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                N30 Digital Solutions is a team of experienced professionals dedicated to delivering exceptional digital solutions that drive real business results.
               </p>
-              <p className="text-lg text-gray-700 mb-8">
-                <strong>Our Mission:</strong> To empower businesses of all sizes with cutting-edge digital solutions that drive growth, improve efficiency, and create meaningful customer experiences.
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                We combine strategic thinking, creative design, and technical expertise to transform your digital vision into reality. Our collaborative approach ensures that every solution is perfectly aligned with your business goals.
               </p>
               <Link
                 href="/about"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-colors inline-block"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 inline-block"
               >
-                Learn More About Us
+                Learn Our Story
               </Link>
             </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-8 text-white">
-                <div className="text-6xl font-bold mb-4">10+</div>
-                <p className="text-xl mb-8">Years of Experience</p>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2">
-                    <FaCheckCircle /> 300+ Projects Completed
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <FaCheckCircle /> 250+ Happy Clients
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <FaCheckCircle /> 98% Client Satisfaction Rate
-                  </li>
-                </ul>
+            <div className="bg-blue-600 rounded-xl p-12 text-white">
+              <div className="space-y-8">
+                <div>
+                  <div className="text-5xl font-black mb-2">250+</div>
+                  <p className="text-lg">Satisfied Clients Worldwide</p>
+                </div>
+                <div className="border-t border-blue-400 pt-8">
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <span className="text-xl mt-1">✓</span>
+                      <span className="font-medium">End-to-end digital solutions</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-xl mt-1">✓</span>
+                      <span className="font-medium">Proven track record of success</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-xl mt-1">✓</span>
+                      <span className="font-medium">Dedicated support team</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -157,12 +182,13 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-24 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it - hear from our satisfied clients
+            <span className="inline-block bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 uppercase tracking-wide">Testimonials</span>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">What Our Clients Say</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Join hundreds of satisfied businesses that have transformed with our solutions
             </p>
           </div>
 
@@ -170,15 +196,15 @@ export default function Home() {
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow"
+                className="bg-white rounded-xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <FaStar key={i} size={20} className="text-yellow-400" />
+                <div className="flex gap-1 mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-lg">★</span>
                   ))}
                 </div>
-                <p className="text-gray-700 text-lg mb-6 italic">"{testimonial.quote}"</p>
-                <div className="border-t pt-4">
+                <p className="text-gray-700 mb-8 leading-relaxed">"{testimonial.quote}"</p>
+                <div className="border-t border-gray-200 pt-6">
                   <p className="font-bold text-gray-900">{testimonial.name}</p>
                   <p className="text-gray-600 text-sm">{testimonial.company}</p>
                 </div>
@@ -189,17 +215,17 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-24 px-4 bg-blue-600 text-white">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-xl mb-8 text-blue-50">
-            Schedule a free consultation with our experts today and discover how we can help you achieve your digital goals.
+          <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to Transform Your Digital Presence?</h2>
+          <p className="text-lg md:text-xl text-blue-50 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Let's discuss your project and create a digital solution that drives real business results.
           </p>
           <Link
             href="/contact"
-            className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors inline-block"
+            className="bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 inline-block"
           >
-            Schedule a Consultation
+            Get Started Today
           </Link>
         </div>
       </section>

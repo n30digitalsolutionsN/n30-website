@@ -8,7 +8,6 @@ export async function POST(request: NextRequest) {
     // Validation
     if (!name || !email || !message) {
       return NextResponse.json(
-        { success: false, message: 'Please fill in all required fields.' },
         { status: 400 }
       );
     }
@@ -17,7 +16,6 @@ export async function POST(request: NextRequest) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { success: false, message: 'Please provide a valid email address.' },
         { status: 400 }
       );
     }
@@ -25,7 +23,6 @@ export async function POST(request: NextRequest) {
     // Validate message length
     if (message.length < 10) {
       return NextResponse.json(
-        { success: false, message: 'Message must be at least 10 characters long.' },
         { status: 400 }
       );
     }

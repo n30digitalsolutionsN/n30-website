@@ -2,13 +2,13 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
-import { FaCalendar, FaUser } from 'react-icons/fa';
 import { client } from '@/lib/sanity.client';
 
 interface BlogPost {
   _id: string;
   title: string;
   slug: { current: string };
+  publishedAt: string;
   _updatedAt: string;
   content?: any[];
 }
@@ -49,20 +49,35 @@ export default function Blog() {
     );
   }, [posts, searchTerm]);
 
+  const calculateReadingTime = (content: any[]): number => {
+    if (!content) return 0;
+    const text = content
+      .map((block: any) => {
+        if (block._type === 'block') {
+          return block.children?.map((child: any) => child.text).join(' ') || '';
+        }
+        return '';
+      })
+      .join(' ');
+    const wordCount = text.split(/\s+/).length;
+    return Math.ceil(wordCount / 200);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-20 pb-20 px-4 bg-linear-to-r from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Blog</h1>
-          <p className="text-xl md:text-2xl text-blue-50">
-            Insights, tips, and thoughts on digital transformation
+      <section className="pt-24 pb-16 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl text-center">
+          <span className="inline-block bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide">Blog</span>
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Insights & Resources</h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Explore our latest articles on digital transformation, technology trends, and business insights
           </p>
         </div>
       </section>
 
       {/* Search Section */}
-      <section className="py-12 px-4 bg-white border-b">
+      <section className="py-12 px-4 bg-white border-b border-gray-200">
         <div className="container mx-auto max-w-4xl">
           <div className="relative">
             <input
@@ -70,135 +85,95 @@ export default function Blog() {
               placeholder="Search articles..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-6 py-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 transition"
+              className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
             />
-            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+            <span className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 text-lg">🔍</span>
           </div>
         </div>
       </section>
 
-      {/* Blog Posts Grid */}
-      <section className="py-20 px-4">
+      {/* Blog Posts */}
+      <section className="py-24 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
           {loading ? (
-            <div className="text-center py-12">
-              <p className="text-xl text-gray-600">Loading blog posts...</p>
+            <div className="text-center py-16">
+              <div className="inline-block">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+              </div>
+              <p className="text-lg text-gray-600 mt-6">Loading articles...</p>
             </div>
           ) : filteredPosts.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-xl text-gray-600">
-                {posts.length === 0 ? 'No blog posts yet. Check back soon!' : 'No posts match your search.'}
+            <div className="text-center py-16 bg-gray-50 rounded-xl">
+              <p className="text-lg text-gray-600 mb-2">
+                {posts.length === 0 ? 'No articles yet' : 'No articles match your search'}
               </p>
+              {posts.length === 0 && (
+                <p className="text-gray-500">Check back soon for new content</p>
+              )}
             </div>
           ) : (
-            <div className="grid gap-8">
-              {filteredPosts.map((post) => (
-                <Link key={post._id} href={`/blog/${post.slug.current}`}>
-                  <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-8 cursor-pointer">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4 hover:text-blue-600 transition-colors">
-                      {post.title}
-                    </h2>
-                    <div className="flex flex-col sm:flex-row gap-4 text-gray-600 mb-6">
-                      <div className="flex items-center gap-2">
-                        <FaCalendar />
-                        <span>{new Date(post.publishedAt || post._updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+            <div className="space-y-6">
+              {filteredPosts.map((post) => {
+                const readingTime = calculateReadingTime(post.content);
+                const publishDate = new Date(post.publishedAt || post._updatedAt);
+                
+                return (
+                  <Link key={post._id} href={`/blog/${post.slug.current}`}>
+                    <div className="bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 p-8 cursor-pointer group">
+                      <div className="flex justify-between items-start gap-4 mb-4">
+                        <h2 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors flex-1">
+                          {post.title}
+                        </h2>
+                        <span className="text-blue-600 font-semibold text-sm whitespace-nowrap mt-1">Read →</span>
                       </div>
-                    </div>
-                    <div className="text-gray-700 line-clamp-2">
-                      {post.content ? 'Read more...' : 'No preview available'}
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-    </div>
-  );
-}
-          {searchTerm && (
-            <p className="mt-4 text-gray-600">
-              Found {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''} matching "{searchTerm}"
-            </p>
-          )}
-        </div>
-      </section>
-
-      {/* Blog Posts */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-4xl">
-          {filteredPosts.length > 0 ? (
-            <div className="space-y-8">
-              {filteredPosts.map((post) => (
-                <article
-                  key={post.id}
-                  className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
-                    <Link href={`/blog/${post.slug}`}>
-                      <h2 className="text-3xl font-bold text-gray-900 hover:text-blue-600 cursor-pointer transition-colors">
-                        {post.title}
-                      </h2>
-                    </Link>
-                    <span className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full font-semibold text-sm whitespace-nowrap">
-                      {post.category}
-                    </span>
-                  </div>
-
-                  <p className="text-gray-700 text-lg mb-6">{post.summary}</p>
-
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                    <div className="flex flex-col sm:flex-row gap-6 text-gray-600">
-                      <div className="flex items-center gap-2">
-                        <FaCalendar size={16} />
-                        <span>{post.date}</span>
+                      
+                      <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-600 mb-4">
+                        <div className="flex items-center gap-2">
+                          <span className="font-medium">📅</span>
+                          <span>{publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                        </div>
+                        {readingTime > 0 && (
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium">⏱</span>
+                            <span>{readingTime} min read</span>
+                          </div>
+                        )}
                       </div>
-                      <div className="flex items-center gap-2">
-                        <FaUser size={16} />
-                        <span>{post.author}</span>
-                      </div>
+
+                      <p className="text-gray-700 leading-relaxed line-clamp-2">
+                        {post.content 
+                          ? post.content
+                              .filter((block: any) => block._type === 'block')
+                              .slice(0, 1)
+                              .map((block: any) => block.children?.map((child: any) => child.text).join('') || '')
+                              .join('')
+                          : 'Read the full article...'}
+                      </p>
                     </div>
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="text-blue-600 hover:text-blue-700 font-bold transition-colors"
-                    >
-                      Read More →
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-xl text-gray-600 mb-4">No articles found matching your search.</p>
-              <button
-                onClick={() => setSearchTerm('')}
-                className="text-blue-600 hover:text-blue-700 font-bold"
-              >
-                Clear search
-              </button>
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-24 px-4 bg-blue-600 text-white">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Stay Updated</h2>
-          <p className="text-xl mb-8 text-blue-50">
-            Subscribe to our newsletter for the latest insights and tips
+          <h2 className="text-4xl md:text-5xl font-black mb-6">Stay Updated</h2>
+          <p className="text-lg text-blue-50 mb-10">
+            Subscribe to our newsletter for the latest insights and industry updates
           </p>
-          <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="flex-1 px-5 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <button
               type="submit"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold transition-colors whitespace-nowrap"
+              className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-bold transition-all duration-300"
             >
               Subscribe
             </button>

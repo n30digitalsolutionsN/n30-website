@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -52,73 +51,76 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-20 pb-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Get In Touch</h1>
-          <p className="text-xl md:text-2xl text-blue-50">
-            We'd love to hear from you. Let's discuss your digital transformation journey.
+      <section className="pt-24 pb-16 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl text-center">
+          <span className="inline-block bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide">Contact Us</span>
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Let's Work Together</h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Ready to discuss your digital transformation? Get in touch with our team to explore how we can help your business succeed.
           </p>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-24 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">Send us a Message</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
 
               {submitted && (
-                <div className="mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-4 rounded-lg">
-                  ✓ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                <div className="mb-6 bg-green-50 border border-green-300 text-green-800 px-4 py-4 rounded-lg">
+                  <p className="font-semibold">Success!</p>
+                  <p className="text-sm">Thank you for your message. We'll get back to you soon.</p>
                 </div>
               )}
 
               {error && (
-                <div className="mb-6 bg-red-100 border border-red-400 text-red-700 px-4 py-4 rounded-lg">
-                  ✗ {error}
+                <div className="mb-6 bg-red-50 border border-red-300 text-red-800 px-4 py-4 rounded-lg">
+                  <p className="font-semibold">Error</p>
+                  <p className="text-sm">{error}</p>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">Full Name *</label>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Full Name *</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 transition"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
                     placeholder="Your name"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">Email Address *</label>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Email Address *</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 transition"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">Message *</label>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">Message *</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 transition resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition resize-none"
                     placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
@@ -135,67 +137,44 @@ export default function Contact() {
 
             {/* Contact Info */}
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">Contact Information</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Get in Touch</h2>
 
               <div className="space-y-8">
-                {/* Address */}
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FaMapMarkerAlt size={24} className="text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Address</h3>
-                      <p className="text-gray-700 text-lg">
-                        123 Digital Street<br />
-                        Tech City, TC 12345<br />
-                        Country
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Phone */}
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FaPhone size={24} className="text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Phone</h3>
-                      <a href="tel:+1234567890" className="text-blue-600 hover:text-blue-700 text-lg font-bold">
-                        +1 (234) 567-890
-                      </a>
-                    </div>
-                  </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">Phone</h3>
+                  <a href="tel:+1234567890" className="text-blue-600 hover:text-blue-700 font-semibold text-lg">
+                    +1 (234) 567-890
+                  </a>
                 </div>
 
                 {/* Email */}
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FaEnvelope size={24} className="text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Email</h3>
-                      <a href="mailto:info@n30digital.com" className="text-blue-600 hover:text-blue-700 text-lg font-bold">
-                        info@n30digital.com
-                      </a>
-                    </div>
-                  </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">Email</h3>
+                  <a href="mailto:info@n30digital.com" className="text-blue-600 hover:text-blue-700 font-semibold text-lg">
+                    info@n30digital.com
+                  </a>
                 </div>
-              </div>
 
-              {/* Map */}
-              <div className="mt-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Location</h3>
-                <iframe
-                  width="100%"
-                  height="300"
-                  style={{ border: 0, borderRadius: '8px' }}
-                  loading="lazy"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890123!2d-74.00601234567890!3d40.71277778901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27f18f15b9%3A0x123456789!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1234567890123"
-                ></iframe>
+                {/* Address */}
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">Address</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    123 Digital Street<br />
+                    Tech City, TC 12345<br />
+                    Country
+                  </p>
+                </div>
+
+                {/* Business Hours */}
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-2">Business Hours</h3>
+                  <p className="text-gray-700">
+                    Monday - Friday: 9:00 AM - 6:00 PM<br />
+                    Saturday: 10:00 AM - 4:00 PM<br />
+                    Sunday: Closed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -203,12 +182,13 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-purple-50">
+      <section className="py-24 px-4 bg-gray-50">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">
-              Find quick answers to common questions
+            <span className="inline-block bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold mb-4 uppercase tracking-wide">FAQ</span>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Common Questions</h2>
+            <p className="text-lg text-gray-600">
+              Answers to frequently asked questions about our services
             </p>
           </div>
 
@@ -216,32 +196,51 @@ export default function Contact() {
             {[
               {
                 question: 'What is your typical project timeline?',
-                answer: 'Project timelines vary depending on scope and complexity. Most projects take 4-12 weeks. We\'ll provide a detailed timeline during the initial consultation.',
+                answer: 'Project timelines vary depending on scope and complexity. Most projects take 4-12 weeks. We provide a detailed timeline during the initial consultation.',
               },
               {
                 question: 'Do you provide ongoing support?',
-                answer: 'Yes, we offer comprehensive maintenance and support packages to keep your digital assets running smoothly.',
+                answer: 'Yes, we offer comprehensive maintenance and support packages to keep your digital assets running smoothly and secure.',
               },
               {
                 question: 'What technologies do you use?',
-                answer: 'We use modern, industry-leading technologies including React, Next.js, Node.js, and cloud platforms like AWS and Google Cloud.',
+                answer: 'We use modern, industry-leading technologies including React, Next.js, Node.js, TypeScript, and cloud platforms like AWS and Google Cloud.',
               },
               {
                 question: 'How much does a project cost?',
-                answer: 'Project costs depend on requirements and scope. We provide custom quotes after understanding your needs during consultation.',
+                answer: 'Project costs depend on requirements and scope. We provide custom quotes after understanding your needs during a consultation call.',
+              },
+              {
+                question: 'Do you sign NDAs?',
+                answer: 'Yes, we are happy to sign Non-Disclosure Agreements to protect your sensitive information and intellectual property.',
+              },
+              {
+                question: 'Can you work with existing code?',
+                answer: 'Absolutely. We can integrate with, improve, or refactor existing codebases as needed for your project.',
               },
             ].map((faq, idx) => (
               <details
                 key={idx}
-                className="bg-white rounded-xl border border-gray-200 p-6 cursor-pointer hover:shadow-lg transition"
+                className="bg-white rounded-lg border border-gray-200 p-6 cursor-pointer hover:border-blue-300 transition"
               >
-                <summary className="font-bold text-gray-900 text-lg">
+                <summary className="font-bold text-gray-900 text-lg flex justify-between items-center">
                   {faq.question}
+                  <span className="text-blue-600 font-black ml-2">+</span>
                 </summary>
-                <p className="mt-4 text-gray-700">{faq.answer}</p>
+                <p className="mt-4 text-gray-700 leading-relaxed">{faq.answer}</p>
               </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 px-4 bg-blue-600 text-white">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to Get Started?</h2>
+          <p className="text-lg text-blue-50 mb-8">
+            Schedule a free consultation with our team to discuss your project and goals.
+          </p>
         </div>
       </section>
     </div>
