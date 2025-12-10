@@ -104,7 +104,7 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 pt-20 px-4">
+      <div className="min-h-screen bg-linear-to-br from-slate-50 to-gray-100 pt-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-6">Article Not Found</h1>
           <p className="text-lg text-gray-600 mb-8">The article you're looking for doesn't exist.</p>
@@ -123,9 +123,9 @@ export default function BlogPost() {
   const shareTitle = post.title;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-gray-100">
       {/* Header */}
-      <section className="pt-20 pb-12 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="pt-20 pb-12 px-4 bg-linear-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto max-w-4xl">
           <Link href="/blog" className="text-blue-100 hover:text-white transition-colors mb-6 inline-block">
             ← Back to Blog
@@ -197,7 +197,7 @@ export default function BlogPost() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-20 px-4 bg-linear-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
           <p className="text-xl mb-8 text-blue-50">
