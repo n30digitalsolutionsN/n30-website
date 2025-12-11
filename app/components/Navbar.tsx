@@ -20,23 +20,19 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-sm">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-lg">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-36">
+          {/* Logo - Larger */}
           <Link href="/" className="flex items-center gap-3 group">
-         <Image 
-  src="/logo.png" 
-  alt="N30 Digital Solutions" 
-  width={300}
-  height={240}
-  priority
-  className="h-16 w-16 object-contain"
-/>
-            <div className="hidden md:flex flex-col">
-              <span className="font-bold text-gray-900 text-lg leading-tight">N30 Digital</span>
-              <span className="text-sm text-gray-500">Solutions</span>
-            </div>
+            <Image 
+              src="/logo.png" 
+              alt="N30 Digital Solutions" 
+              width={500}
+              height={400}
+              priority
+              className="h-40 w-40 object-contain group-hover:scale-110 transition-transform duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -57,7 +53,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg text-sm"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-sm"
             >
               Get Started
             </Link>
@@ -70,17 +66,17 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className={`h-0.5 w-full bg-gray-800 transition-all duration-300 ${
+              className={`h-0.5 w-full bg-gray-800 transition-all ${
                 isOpen ? 'rotate-45 translate-y-2' : ''
               }`}
             ></span>
             <span
-              className={`h-0.5 w-full bg-gray-800 transition-all duration-300 ${
+              className={`h-0.5 w-full bg-gray-800 transition-all ${
                 isOpen ? 'opacity-0' : ''
               }`}
             ></span>
             <span
-              className={`h-0.5 w-full bg-gray-800 transition-all duration-300 ${
+              className={`h-0.5 w-full bg-gray-800 transition-all ${
                 isOpen ? '-rotate-45 -translate-y-2' : ''
               }`}
             ></span>
@@ -89,12 +85,12 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4 space-y-2 animate-in fade-in slide-in-from-top-2">
+          <div className="md:hidden mt-4 pb-4 border-t pt-4">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="block py-2.5 px-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium text-sm transition-all duration-300"
+                className="block py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -102,7 +98,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="block mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold text-center transition-all duration-300 text-sm"
+              className="block mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium text-center transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Get Started

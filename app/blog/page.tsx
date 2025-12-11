@@ -1,83 +1,107 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { client } from '@/lib/sanity.client';
-
-interface BlogPost {
-  _id: string;
-  title: string;
-  slug: { current: string };
-  publishedAt: string;
-  _updatedAt: string;
-  content?: any[];
-}
+import { FaCalendar, FaUser } from 'react-icons/fa';
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const query = `
-          *[_type == "post"] | order(publishedAt desc) {
-            _id,
-            title,
-            slug,
-            publishedAt,
-            content
-          }
-        `;
-        const data = await client.fetch(query);
-        setPosts(data);
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, []);
+  const blogPosts = [
+    {
+      id: 0,
+      title: 'Building the Butibam Mantics Rugby Team Website – A Complete Digital Upgrade',
+      summary: 'How modern web development, database integration, and an admin dashboard transformed a local Lae rugby club\'s digital presence.',
+      author: 'N30 Digital Solutions',
+      date: 'Dec 9, 2025',
+      category: 'Case Study',
+      slug: 'butibam-mantics-case-study',
+    },
+    {
+      id: 1,
+      title: '10 Web Design Trends in 2024',
+      summary: 'Explore the latest web design trends that are shaping the digital landscape this year.',
+      author: 'Emily Rodriguez',
+      date: 'Dec 5, 2024',
+      category: 'Design',
+      slug: 'web-design-trends-2024',
+    },
+    {
+      id: 2,
+      title: 'How to Optimize Your Website for Speed',
+      summary: 'Learn proven strategies to improve your website performance and user experience.',
+      author: 'David Chen',
+      date: 'Dec 1, 2024',
+      category: 'Development',
+      slug: 'optimize-website-speed',
+    },
+    {
+      id: 3,
+      title: 'The Future of E-Commerce',
+      summary: 'Understanding AI, personalization, and the next generation of online shopping.',
+      author: 'Sarah Williams',
+      date: 'Nov 28, 2024',
+      category: 'Strategy',
+      slug: 'future-ecommerce',
+    },
+    {
+      id: 4,
+      title: 'Mobile-First Design: Why It Matters',
+      summary: 'Discover why mobile-first approach is crucial for your digital strategy.',
+      author: 'Emily Rodriguez',
+      date: 'Nov 25, 2024',
+      category: 'Design',
+      slug: 'mobile-first-design',
+    },
+    {
+      id: 5,
+      title: 'SEO Best Practices Guide',
+      summary: 'A comprehensive guide to improving your search engine rankings organically.',
+      author: 'Alex Johnson',
+      date: 'Nov 20, 2024',
+      category: 'Marketing',
+      slug: 'seo-best-practices',
+    },
+    {
+      id: 6,
+      title: 'Building Secure Web Applications',
+      summary: 'Essential security practices every web developer should know.',
+      author: 'David Chen',
+      date: 'Nov 15, 2024',
+      category: 'Development',
+      slug: 'secure-web-apps',
+    },
+  ];
 
   const filteredPosts = useMemo(() => {
-    return posts.filter(
+    return blogPosts.filter(
       (post) =>
-        post.title.toLowerCase().includes(searchTerm.toLowerCase())
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  }, [posts, searchTerm]);
-
-  const calculateReadingTime = (content: any[] | undefined): number => {
-    if (!content) return 0;
-    const text = content
-      .map((block: any) => {
-        if (block._type === 'block') {
-          return block.children?.map((child: any) => child.text).join(' ') || '';
-        }
-        return '';
-      })
-      .join(' ');
-    const wordCount = text.split(/\s+/).length;
-    return Math.ceil(wordCount / 200);
-  };
+  }, [searchTerm]);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-6xl text-center">
-          <span className="inline-block bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-wide">Blog</span>
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">Insights & Resources</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Explore our latest articles on digital transformation, technology trends, and business insights
+      {/* Hero Section - Modern Gradient */}
+      <section className="relative pt-32 pb-32 px-4 bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 right-20 w-72 h-72 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 left-20 w-72 h-72 bg-cyan-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+
+        <div className="relative container mx-auto max-w-6xl text-center">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight">Our <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Blog</span></h1>
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            Insights, tips, and thoughts on digital transformation
           </p>
         </div>
       </section>
 
       {/* Search Section */}
-      <section className="py-12 px-4 bg-white border-b border-gray-200">
+      <section className="py-12 px-4 bg-white border-b">
         <div className="container mx-auto max-w-4xl">
           <div className="relative">
             <input
@@ -85,95 +109,92 @@ export default function Blog() {
               placeholder="Search articles..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
+              className="w-full px-6 py-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 transition"
             />
-            <span className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 text-lg">🔍</span>
+            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
           </div>
+          {searchTerm && (
+            <p className="mt-4 text-gray-600">
+              Found {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''} matching "{searchTerm}"
+            </p>
+          )}
         </div>
       </section>
 
       {/* Blog Posts */}
-      <section className="py-24 px-4 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-4xl">
-          {loading ? (
-            <div className="text-center py-16">
-              <div className="inline-block">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-              </div>
-              <p className="text-lg text-gray-600 mt-6">Loading articles...</p>
-            </div>
-          ) : filteredPosts.length === 0 ? (
-            <div className="text-center py-16 bg-gray-50 rounded-xl">
-              <p className="text-lg text-gray-600 mb-2">
-                {posts.length === 0 ? 'No articles yet' : 'No articles match your search'}
-              </p>
-              {posts.length === 0 && (
-                <p className="text-gray-500">Check back soon for new content</p>
-              )}
+          {filteredPosts.length > 0 ? (
+            <div className="space-y-8">
+              {filteredPosts.map((post) => (
+                <article
+                  key={post.id}
+                  className="bg-linear-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow"
+                >
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+                    <Link href={`/blog/${post.slug}`}>
+                      <h2 className="text-3xl font-bold text-gray-900 hover:text-blue-600 cursor-pointer transition-colors">
+                        {post.title}
+                      </h2>
+                    </Link>
+                    <span className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full font-semibold text-sm whitespace-nowrap">
+                      {post.category}
+                    </span>
+                  </div>
+
+                  <p className="text-gray-700 text-lg mb-6">{post.summary}</p>
+
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div className="flex flex-col sm:flex-row gap-6 text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <FaCalendar size={16} />
+                        <span>{post.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <FaUser size={16} />
+                        <span>{post.author}</span>
+                      </div>
+                    </div>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="text-blue-600 hover:text-blue-700 font-bold transition-colors"
+                    >
+                      Read More →
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
           ) : (
-            <div className="space-y-6">
-              {filteredPosts.map((post) => {
-                const readingTime = calculateReadingTime(post.content);
-                const publishDate = new Date(post.publishedAt || post._updatedAt);
-                
-                return (
-                  <Link key={post._id} href={`/blog/${post.slug.current}`}>
-                    <div className="bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 p-8 cursor-pointer group">
-                      <div className="flex justify-between items-start gap-4 mb-4">
-                        <h2 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors flex-1">
-                          {post.title}
-                        </h2>
-                        <span className="text-blue-600 font-semibold text-sm whitespace-nowrap mt-1">Read →</span>
-                      </div>
-                      
-                      <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-600 mb-4">
-                        <div className="flex items-center gap-2">
-                          <span className="font-medium">📅</span>
-                          <span>{publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-                        </div>
-                        {readingTime > 0 && (
-                          <div className="flex items-center gap-2">
-                            <span className="font-medium">⏱</span>
-                            <span>{readingTime} min read</span>
-                          </div>
-                        )}
-                      </div>
-
-                      <p className="text-gray-700 leading-relaxed line-clamp-2">
-                        {post.content 
-                          ? post.content
-                              .filter((block: any) => block._type === 'block')
-                              .slice(0, 1)
-                              .map((block: any) => block.children?.map((child: any) => child.text).join('') || '')
-                              .join('')
-                          : 'Read the full article...'}
-                      </p>
-                    </div>
-                  </Link>
-                );
-              })}
+            <div className="text-center py-12">
+              <p className="text-xl text-gray-600 mb-4">No articles found matching your search.</p>
+              <button
+                onClick={() => setSearchTerm('')}
+                className="text-blue-600 hover:text-blue-700 font-bold"
+              >
+                Clear search
+              </button>
             </div>
           )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 bg-blue-600 text-white">
+      <section className="py-20 px-4 bg-linear-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">Stay Updated</h2>
-          <p className="text-lg text-blue-50 mb-10">
-            Subscribe to our newsletter for the latest insights and industry updates
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Stay Updated</h2>
+          <p className="text-xl mb-8 text-blue-50">
+            Subscribe to our newsletter for the latest insights and tips
           </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-5 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="flex-1 px-6 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
             <button
               type="submit"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-bold transition-all duration-300"
+              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold transition-colors whitespace-nowrap"
             >
               Subscribe
             </button>
