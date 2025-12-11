@@ -208,9 +208,7 @@ export default function Contact() {
                     style={{ border: 0, borderRadius: '8px' }}
                     loading="lazy"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3994.4823896505816!2d146.98516!3d-6.72138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x681e8f5e5f5e5e5f%3A0x0!2sButibam%2C%20Lae%2C%20Morobe!5e0!3m2!1sen!2spg!4v1670000000000"
-                    allowFullScreen=""
-                    aria-hidden="false"
-                    tabIndex={0}
+                    allowFullScreen={true}
                   ></iframe>
                 </div>
                 <p className="text-center text-gray-600 mt-4 text-sm">
