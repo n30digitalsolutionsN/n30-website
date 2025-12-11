@@ -105,24 +105,29 @@ export default function Footer() {
             <h3 className="font-bold text-white mb-6 text-lg">Contact Info</h3>
             <ul className="space-y-4 text-sm">
               <li>
-                <p className="text-gray-400 font-medium">
-                  📍 123 Digital Street, Tech City, TC 12345
+                <p className="text-gray-400 font-medium mb-2">Address</p>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Room 1, Butibam Resource Centre<br />
+                  Butibam, Lae<br />
+                  Morobe Province, PNG
                 </p>
               </li>
               <li>
                 <a
-                  href="tel:+1234567890"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 font-medium"
+                  href="https://wa.me/6757968919"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-green-400 transition-colors duration-300 font-medium block mb-1"
                 >
-                  📞 +1 (234) 567-890
+                  💬 +675 7968 9919 (WhatsApp)
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@n30digital.com"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 font-medium"
+                  href="mailto:n30digitalsolutions.proton.me"
+                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 font-medium text-xs break-all"
                 >
-                  ✉️ info@n30digital.com
+                  ✉️ n30digitalsolutions.proton.me
                 </a>
               </li>
             </ul>

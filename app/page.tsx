@@ -403,7 +403,7 @@ export default function Home() {
                   FEATURED CASE STUDY
                 </span>
                 <h3 className="text-4xl font-black text-gray-900 mb-6">
-                  Local Business Doubles Online Revenue
+                  Butibam Mantics Rugby Team Website
                 </h3>
               </div>
 
@@ -417,7 +417,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">The Challenge</h4>
                     <p className="text-gray-600 leading-relaxed">
-                      A Lae-based retail business struggled with minimal online presence and lost sales to competitors with better digital visibility.
+                      Butibam Mantics needed a professional online platform to manage team registrations, memberships, competitions, and engage with supporters across Lae.
                     </p>
                   </div>
                 </div>
@@ -431,7 +431,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Our Solution</h4>
                     <p className="text-gray-600 leading-relaxed">
-                      We built a modern e-commerce website, optimized for local search, integrated payment processing, and launched targeted social media campaigns.
+                      We built a modern, mobile-friendly website with integrated forms, admin dashboard, database management, SEO optimization, and secure hosting on Netlify CDN.
                     </p>
                   </div>
                 </div>
@@ -445,7 +445,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">The Results</h4>
                     <p className="text-gray-600 leading-relaxed">
-                      Within 6 months, online sales increased by 120%, customer engagement tripled, and they expanded to 2 additional locations.
+                      Professional digital presence, streamlined team management, increased member engagement, and a scalable platform ready for future growth and events.
                     </p>
                   </div>
                 </div>
@@ -453,24 +453,24 @@ export default function Home() {
 
               <div className="grid grid-cols-3 gap-4 py-8 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-4xl font-black text-blue-600 mb-2">120%</div>
-                  <p className="text-sm text-gray-600 font-semibold">Revenue Growth</p>
+                  <div className="text-4xl font-black text-blue-600 mb-2">100%</div>
+                  <p className="text-sm text-gray-600 font-semibold">Digital Ready</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-black text-blue-600 mb-2">3x</div>
-                  <p className="text-sm text-gray-600 font-semibold">Engagement Up</p>
+                  <div className="text-4xl font-black text-blue-600 mb-2">Live</div>
+                  <p className="text-sm text-gray-600 font-semibold">On Netlify</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-black text-blue-600 mb-2">6mo</div>
-                  <p className="text-sm text-gray-600 font-semibold">Timeline</p>
+                  <div className="text-4xl font-black text-blue-600 mb-2">Full</div>
+                  <p className="text-sm text-gray-600 font-semibold">Admin Panel</p>
                 </div>
               </div>
 
               <Link
-                href="/contact"
+                href="/blog/butibam-mantics-case-study"
                 className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
-                Start Your Success Story <FaArrowRight />
+                Read Full Case Study <FaArrowRight />
               </Link>
             </div>
 
@@ -492,26 +492,36 @@ export default function Home() {
 
                   <div className="text-center py-8 border-t border-gray-200">
                     <p className="text-gray-600 text-sm font-semibold mb-2">AFTER</p>
-                    <p className="text-3xl font-black text-blue-600">Modern E-Commerce Platform</p>
-                    <p className="text-gray-600 mt-3">Professional website, online sales, customer growth</p>
+                    <p className="text-3xl font-black text-blue-600">Professional Rugby Team Website</p>
+                    <p className="text-gray-600 mt-3">Complete digital platform with admin tools</p>
                   </div>
 
                   <div className="bg-linear-to-r from-blue-50 to-cyan-50 rounded-xl p-6">
-                    <p className="text-sm text-gray-600 font-semibold mb-3">Key Metrics</p>
+                    <p className="text-sm text-gray-600 font-semibold mb-3">Key Features</p>
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2 text-gray-700">
-                        <span className="text-green-600 font-bold">✓</span> Mobile-optimized design
+                        <span className="text-green-600 font-bold">✓</span> Mobile-friendly design
                       </li>
                       <li className="flex items-center gap-2 text-gray-700">
-                        <span className="text-green-600 font-bold">✓</span> Fast page load times
+                        <span className="text-green-600 font-bold">✓</span> Team registration forms
+                      </li>
+                      <li className="flex items-center gap-2 text-gray-700">
+                        <span className="text-green-600 font-bold">✓</span> Admin dashboard
+                      </li>
+                      <li className="flex items-center gap-2 text-gray-700">
+                        <span className="text-green-600 font-bold">✓</span> Database integration
                       </li>
                       <li className="flex items-center gap-2 text-gray-700">
                         <span className="text-green-600 font-bold">✓</span> SEO optimized
                       </li>
-                      <li className="flex items-center gap-2 text-gray-700">
-                        <span className="text-green-600 font-bold">✓</span> Secure payments
-                      </li>
                     </ul>
+                  </div>
+
+                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center">
+                    <p className="text-sm text-gray-600 mb-2">Visit the live site at:</p>
+                    <a href="https://mantics.netlify.app" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-bold text-lg">
+                      mantics.netlify.app
+                    </a>
                   </div>
                 </div>
               </div>

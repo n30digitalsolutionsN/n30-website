@@ -167,17 +167,20 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Phone */}
+                {/* WhatsApp */}
                 <div className="bg-linear-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-linear-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center shrink-0">
-                      <FaPhone size={24} className="text-white" />
+                    <div className="w-12 h-12 bg-linear-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.967 1.523A9.9 9.9 0 004.03 12c0 5.476 4.44 9.917 9.897 9.917 1.47 0 2.89-.207 4.242-.63l.003.001 4.267.667-1.433-4.338c.454-1.391.722-2.889.722-4.474 0-5.476-4.44-9.917-9.897-9.917z"/>
+                      </svg>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Phone</h3>
-                      <a href="tel:+1234567890" className="text-blue-600 hover:text-blue-700 text-lg font-bold">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">WhatsApp</h3>
+                      <a href="https://wa.me/6757968919" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 text-lg font-bold">
                         +675 7968 9919
                       </a>
+                      <p className="text-gray-600 text-sm mt-2">Click to chat with us on WhatsApp</p>
                     </div>
                   </div>
                 </div>

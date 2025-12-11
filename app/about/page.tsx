@@ -8,16 +8,9 @@ export default function About() {
     {
       id: 3,
       name: 'Elton Neo',
-      role: 'Lead Developer',
+      role: 'Lead Developer / Founder',
       bio: 'Full-stack developer with expertise in modern web technologies. Builds scalable solutions.',
       image: '/neo-profile.jpg',
-    },
-    {
-      id: 4,
-      name: 'Sarah Williams',
-      role: 'Strategy Manager',
-      bio: 'Digital strategist focused on business growth. Drives innovation and client success.',
-      image: '👩‍💼',
     },
   ];
 
@@ -155,33 +148,62 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="flex justify-center">
             {teamMembers.map((member) => (
               <div
                 key={member.id}
-                className="bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl p-12 text-center hover:shadow-xl transition-shadow"
+                className="group relative w-full max-w-xl"
               >
-                {member.image.includes('.jpg') || member.image.includes('.png') ? (
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={280}
-                    height={280}
-                    className="w-40 h-40 rounded-full mx-auto mb-6 object-cover"
-                  />
-                ) : (
-                  <div className="text-9xl mb-6">{member.image}</div>
-                )}
-                <h3 className="text-3xl font-bold text-gray-900 mb-3">{member.name}</h3>
-                <p className="text-blue-600 font-bold text-lg mb-4">{member.role}</p>
-                <p className="text-gray-600 text-base leading-relaxed">{member.bio}</p>
-                <div className="flex gap-4 justify-center mt-6">
-                  <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">
-                    <FaLinkedin size={20} />
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                    <FaTwitter size={20} />
-                  </a>
+                {/* Animated background blobs */}
+                <div className="absolute inset-0 bg-linear-to-br from-blue-400 to-cyan-400 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                
+                {/* Main card */}
+                <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-blue-100 hover:border-blue-400">
+                  {/* Top gradient bar */}
+                  <div className="h-2 bg-linear-to-r from-blue-600 via-cyan-600 to-purple-600"></div>
+                  
+                  {/* Content */}
+                  <div className="p-12 text-center">
+                    {/* Profile Image */}
+                    <div className="mb-8 relative">
+                      <div className="absolute inset-0 bg-linear-to-br from-blue-600 to-cyan-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                      {member.image.includes('.jpg') || member.image.includes('.png') ? (
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          width={320}
+                          height={320}
+                          className="w-48 h-48 rounded-full mx-auto mb-6 object-cover relative z-10 ring-4 ring-blue-50 group-hover:scale-110 transition-transform duration-500 shadow-xl"
+                        />
+                      ) : (
+                        <div className="text-9xl mb-6 relative z-10">{member.image}</div>
+                      )}
+                    </div>
+                    
+                    {/* Text Content */}
+                    <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-blue-600 group-hover:to-cyan-600 group-hover:bg-clip-text transition-all duration-300">
+                      {member.name}
+                    </h3>
+                    <div className="inline-block bg-linear-to-r from-blue-600 to-cyan-600 text-white px-6 py-2 rounded-full font-bold text-sm mb-6 group-hover:shadow-lg transition-all duration-300">
+                      {member.role}
+                    </div>
+                    <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-sm mx-auto">
+                      {member.bio}
+                    </p>
+                    
+                    {/* Social Links */}
+                    <div className="flex gap-6 justify-center pt-8 border-t border-gray-200">
+                      <a href="#" className="w-12 h-12 rounded-full bg-linear-to-br from-blue-600 to-cyan-600 text-white flex items-center justify-center hover:scale-125 transition-transform duration-300 shadow-lg hover:shadow-xl">
+                        <FaLinkedin size={20} />
+                      </a>
+                      <a href="#" className="w-12 h-12 rounded-full bg-linear-to-br from-blue-600 to-cyan-600 text-white flex items-center justify-center hover:scale-125 transition-transform duration-300 shadow-lg hover:shadow-xl">
+                        <FaTwitter size={20} />
+                      </a>
+                      <a href="#" className="w-12 h-12 rounded-full bg-linear-to-br from-blue-600 to-cyan-600 text-white flex items-center justify-center hover:scale-125 transition-transform duration-300 shadow-lg hover:shadow-xl">
+                        <FaFacebook size={20} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

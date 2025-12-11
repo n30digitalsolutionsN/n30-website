@@ -30,12 +30,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // TODO: In a production app, you would:
-    // 1. Send an email to admin and user
-    // 2. Store the contact form submission in a database
-    // 3. Implement proper error handling and logging
-
-    // For now, we'll just log to console (in production, use proper logging)
+    // Log submission for debugging
     console.log('Contact Form Submission:', {
       name,
       email,
@@ -43,7 +38,8 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     });
 
-    // Simulate successful submission
+    // Email.js is handled on the client side via the contact form
+    // This API just validates and logs the submission
     return NextResponse.json(
       {
         success: true,

@@ -49,8 +49,20 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button and Contact Info */}
+          <div className="hidden md:flex items-center gap-6">
+            {/* WhatsApp Contact Link */}
+            <a
+              href="https://wa.me/6757968919"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 hover:text-green-600 font-semibold text-sm transition-colors duration-300 flex items-center gap-1"
+              title="WhatsApp us"
+            >
+              💬 WhatsApp
+            </a>
+            
+            {/* Get Started Button */}
             <Link
               href="/contact"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-sm"
@@ -96,6 +108,19 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            
+            {/* Mobile WhatsApp Contact Link */}
+            <div className="border-t border-gray-200 mt-4 pt-4">
+              <a
+                href="https://wa.me/6757968919"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-green-600 font-semibold transition-colors flex items-center gap-2"
+              >
+                💬 WhatsApp
+              </a>
+            </div>
+            
             <Link
               href="/contact"
               className="block mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium text-center transition-colors"
