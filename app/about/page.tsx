@@ -1,29 +1,16 @@
 'use client';
 
+import Image from 'next/image';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 export default function About() {
   const teamMembers = [
     {
-      id: 1,
-      name: 'Alex Johnson',
-      role: 'CEO & Founder',
-      bio: 'Visionary leader with 15+ years in digital transformation. Passionate about helping businesses succeed.',
-      image: '👨‍💼',
-    },
-    {
-      id: 2,
-      name: 'Emily Rodriguez',
-      role: 'Creative Director',
-      bio: 'Award-winning designer specializing in UX/UI design. Creates stunning digital experiences.',
-      image: '👩‍🎨',
-    },
-    {
       id: 3,
-      name: 'David Chen',
+      name: 'Elton Neo',
       role: 'Lead Developer',
       bio: 'Full-stack developer with expertise in modern web technologies. Builds scalable solutions.',
-      image: '👨‍💻',
+      image: '/neo-profile.jpg',
     },
     {
       id: 4,
@@ -52,63 +39,72 @@ export default function About() {
           </p>
         </div>
       </section>
+{/* Company Overview */}
+<section className="py-24 px-4 bg-gray-50">
+  <div className="container mx-auto max-w-6xl">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      
+      {/* Text Content */}
+      <div>
+        <span className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          Our Journey
+        </span>
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Helping Startups Grow Since 2022
+        </h2>
+        <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+          We are a small but passionate team focused on helping startups turn their ideas into something real. We believe in practical solutions, honest advice, and working side by side with founders.
+        </p>
+        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+          Our approach is simple: listen, understand, and build. We use modern tools and straightforward strategies to get things done without overcomplicating them.
+        </p>
 
-      {/* Company Overview */}
-      <section className="py-24 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="space-y-4">
+          <div className="flex gap-4">
+            <span className="text-2xl text-green-600">✓</span>
             <div>
-              <span className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">Our Journey</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Building Digital Futures Since 2014</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Founded by visionary entrepreneurs, N30 Digital Solutions has grown into a leading digital innovation company. We partner with ambitious organizations to unlock their digital potential.
-              </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Our approach combines strategic thinking, creative excellence, and technical precision to deliver solutions that drive real business value and sustainable growth.
-              </p>
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <span className="text-2xl">✓</span>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Client-Focused</h4>
-                    <p className="text-gray-600">Your success is our mission</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <span className="text-2xl">✓</span>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Innovation-Driven</h4>
-                    <p className="text-gray-600">Always adopting latest technologies</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <span className="text-2xl">✓</span>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Results-Oriented</h4>
-                    <p className="text-gray-600">Measurable outcomes guaranteed</p>
-                  </div>
-                </div>
-              </div>
+              <h4 className="font-bold text-gray-900">Real Solutions</h4>
+              <p className="text-gray-600">We focus on solutions that actually help your business grow.</p>
             </div>
-            <div className="bg-linear-to-br from-blue-600 to-cyan-600 rounded-2xl p-12 text-white shadow-2xl">
-              <div className="space-y-12">
-                <div className="border-b border-white/20 pb-8">
-                  <div className="text-6xl font-bold mb-3">500+</div>
-                  <p className="text-xl text-blue-100">Successful Projects</p>
-                </div>
-                <div className="border-b border-white/20 pb-8">
-                  <div className="text-6xl font-bold mb-3">99.9%</div>
-                  <p className="text-xl text-blue-100">Uptime & Reliability</p>
-                </div>
-                <div>
-                  <div className="text-6xl font-bold mb-3">4.9★</div>
-                  <p className="text-xl text-blue-100">Client Satisfaction</p>
-                </div>
-              </div>
+          </div>
+          <div className="flex gap-4">
+            <span className="text-2xl text-green-600">✓</span>
+            <div>
+              <h4 className="font-bold text-gray-900">Close Collaboration</h4>
+              <p className="text-gray-600">We work alongside you, step by step, to reach your goals.</p>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <span className="text-2xl text-green-600">✓</span>
+            <div>
+              <h4 className="font-bold text-gray-900">Friendly Team</h4>
+              <p className="text-gray-600">We’re approachable, responsive, and genuinely care about your success.</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Stats Box */}
+      <div className="bg-linear-to-br from-blue-500 to-indigo-500 rounded-2xl p-12 text-white shadow-lg">
+        <div className="space-y-12">
+          <div className="border-b border-white/20 pb-6">
+            <div className="text-5xl font-bold mb-2">100+</div>
+            <p className="text-lg text-blue-200">Clients We’ve Helped</p>
+          </div>
+          <div className="border-b border-white/20 pb-6">
+            <div className="text-5xl font-bold mb-2">95%</div>
+            <p className="text-lg text-blue-200">Client Satisfaction</p>
+          </div>
+          <div>
+            <div className="text-5xl font-bold mb-2">4.8★</div>
+            <p className="text-lg text-blue-200">Average Ratings</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* Mission & Vision */}
       <section className="py-20 px-4 bg-linear-to-r from-blue-50 to-purple-50">
@@ -159,16 +155,26 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member) => (
               <div
                 key={member.id}
-                className="bg-linear-to-br from-gray-50 to-gray-100 rounded-xl p-8 text-center hover:shadow-lg transition-shadow"
+                className="bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl p-12 text-center hover:shadow-xl transition-shadow"
               >
-                <div className="text-6xl mb-4">{member.image}</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-blue-600 font-bold mb-4">{member.role}</p>
-                <p className="text-gray-600 text-sm">{member.bio}</p>
+                {member.image.includes('.jpg') || member.image.includes('.png') ? (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={280}
+                    height={280}
+                    className="w-40 h-40 rounded-full mx-auto mb-6 object-cover"
+                  />
+                ) : (
+                  <div className="text-9xl mb-6">{member.image}</div>
+                )}
+                <h3 className="text-3xl font-bold text-gray-900 mb-3">{member.name}</h3>
+                <p className="text-blue-600 font-bold text-lg mb-4">{member.role}</p>
+                <p className="text-gray-600 text-base leading-relaxed">{member.bio}</p>
                 <div className="flex gap-4 justify-center mt-6">
                   <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">
                     <FaLinkedin size={20} />

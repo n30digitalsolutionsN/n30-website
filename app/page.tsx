@@ -27,39 +27,25 @@ export default function Home() {
   ];
 
   const stats = [
-    { number: '500+', label: 'Successful Projects', trend: '+45%' },
+    { number: '20+', label: 'Successful Projects', trend: '+45%' },
     { number: '99.9%', label: 'Uptime Guarantee', trend: 'Industry Leading' },
     { number: '48h', label: 'Avg Response Time', trend: '-20%' },
     { number: '4.9/5', label: 'Client Rating', trend: '★★★★★' },
   ];
 
   const features = [
-    { title: 'AI-Powered Solutions', desc: 'Leverage cutting-edge AI for automation and insights' },
-    { title: 'Mobile-First Design', desc: 'Optimized for all devices with responsive excellence' },
-    { title: 'Security First', desc: 'Enterprise-grade security and compliance standards' },
-    { title: '24/7 Support', desc: 'Dedicated team always available for your success' },
+    { title: 'Mobile-First Design', desc: 'Optimized for all devices with responsive excellence', icon: '📱' },
+    { title: 'Security First', desc: 'Enterprise-grade security and compliance standards', icon: '🔒' },
+    { title: '24/7 Support', desc: 'Dedicated team always available for your success', icon: '💬' },
+    { title: 'Proven Results', desc: 'Track record of delivering measurable business impact', icon: '📈' },
   ];
 
   const testimonials = [
     {
       id: 1,
-      name: 'John Smith',
-      company: 'Tech Startup Inc',
-      quote: 'N30 Digital transformed our vision into reality. Results exceeded expectations by 150%.',
-      rating: 5,
-    },
-    {
-      id: 2,
-      name: 'Sarah Johnson',
-      company: 'E-Commerce Pro',
-      quote: 'Professional, reliable, and innovative. Our ROI improved dramatically within months.',
-      rating: 5,
-    },
-    {
-      id: 3,
-      name: 'Michael Brown',
-      company: 'Digital Agency',
-      quote: 'Outstanding execution and strategic thinking. A true partner for growth.',
+      name: 'Alofa Gware',
+      company: 'Team Manager-Butibam Mantics',
+      quote: 'N30 Digital transformed our online presence. Their expertise and dedication are unmatched.',
       rating: 5,
     },
   ];
@@ -84,12 +70,6 @@ export default function Home() {
         </div>
 
         <div className="relative container mx-auto max-w-6xl text-center">
-          <div className="mb-8 inline-block">
-            <span className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-200 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm border border-blue-400/30">
-              <FaStar className="text-yellow-300" /> Lae-Based Digital Agency
-            </span>
-          </div>
-          
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tighter">
             Digital Solutions
             <br />
@@ -144,31 +124,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section - Premium */}
-      <section className="py-32 px-4 bg-white relative">
-        <div className="absolute inset-0 bg-linear-to-b from-blue-50/50 to-transparent pointer-events-none"></div>
+      {/* Features Section - Premium Redesign */}
+      <section className="py-32 px-4 bg-linear-to-b from-white to-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30 pointer-events-none">
+          <div className="absolute -top-40 right-10 w-80 h-80 bg-blue-400 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 left-10 w-80 h-80 bg-cyan-400 rounded-full blur-3xl"></div>
+        </div>
 
         <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Why Choose <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">N30 Digital</span>
+          <div className="text-center mb-24">
+            <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-6 leading-tight">
+              Why Choose <span className="bg-linear-to-r from-blue-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">N<span className="font-bebas-neue text-7xl md:text-8xl font-black italic" style={{letterSpacing: '-3px', fontVariationSettings: '"wght" 700'}}>30</span> Digital</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               We combine cutting-edge technology with strategic thinking to deliver exceptional results
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, idx) => (
-              <div key={idx} className="group relative bg-white rounded-2xl p-10 border-2 border-blue-100 hover:border-blue-500 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 bg-linear-to-br from-blue-600/5 to-cyan-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div 
+                key={idx} 
+                className="group relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-400 shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden hover:-translate-y-3"
+              >
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-linear-to-br from-blue-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-600 via-cyan-600 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
                 
                 <div className="relative">
-                  <div className="w-16 h-16 bg-linear-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                    <FaCheckCircle className="text-white text-2xl" />
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-4xl font-black text-transparent bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{feature.title}</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">{feature.desc}</p>
+                  
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-blue-600 group-hover:to-cyan-600 group-hover:bg-clip-text transition-all duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    {feature.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -176,15 +173,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section - Premium */}
-      <section className="py-32 px-4 bg-linear-to-b from-gray-50 to-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-20">
-            <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <FaStar className="text-yellow-400" /> Our Services
-            </span>
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Comprehensive Digital <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Solutions</span></h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+      {/* Services Section - Premium Redesign */}
+      <section className="py-32 px-4 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-40 pointer-events-none">
+          <div className="absolute top-1/3 -right-40 w-96 h-96 bg-blue-300 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="text-center mb-24">
+            <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-6 leading-tight">
+              Comprehensive Digital <span className="bg-linear-to-r from-blue-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">Solutions</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               We combine strategy, design, and technology to create solutions that drive real business results
             </p>
           </div>
@@ -193,19 +193,31 @@ export default function Home() {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="group relative bg-white rounded-2xl p-10 border-2 border-gray-100 hover:border-blue-500 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="group relative bg-white rounded-2xl border border-gray-200 hover:border-blue-400 shadow-md hover:shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-4"
               >
-                <div className="absolute inset-0 bg-linear-to-br from-blue-600/5 to-cyan-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Premium gradient card */}
+                <div className="absolute inset-0 bg-linear-to-br from-blue-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <div className="relative">
-                  <div className="text-7xl mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{service.title}</h3>
-                  <p className="text-gray-600 mb-8 leading-relaxed text-lg">{service.description}</p>
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-600 via-cyan-600 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                
+                <div className="relative p-10">
+                  {/* Service number badge */}
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-linear-to-br from-blue-600 to-cyan-600 text-white font-bold text-lg mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {service.id}
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-blue-600 group-hover:to-cyan-600 group-hover:bg-clip-text transition-all duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-8 leading-relaxed text-base group-hover:text-gray-700 transition-colors duration-300">
+                    {service.description}
+                  </p>
                   <Link
                     href="/services"
-                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-bold transition-all group-hover:gap-3"
+                    className="inline-flex items-center gap-3 text-blue-600 hover:text-blue-700 font-semibold transition-all duration-300 group-hover:gap-4 group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-blue-600 group-hover:to-cyan-600 group-hover:bg-clip-text"
                   >
-                    Discover More <FaArrowRight />
+                    Discover More <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
@@ -219,9 +231,6 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                <FaStar className="text-yellow-400" size={14} /> About Us
-              </span>
               <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8">Lae's Growing Digital <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Innovation Hub</span></h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 Born from a passion to support local Lae businesses, we're a startup committed to making professional digital solutions accessible and affordable for PNG entrepreneurs.
@@ -273,9 +282,6 @@ export default function Home() {
       <section className="py-32 px-4 bg-linear-to-b from-white to-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-20">
-            <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <FaStar className="text-yellow-400" size={14} /> Strategic Partners
-            </span>
             <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
               Supporting <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Lae's Business Community</span>
             </h2>
@@ -342,9 +348,6 @@ export default function Home() {
       <section className="py-32 px-4 bg-linear-to-b from-white to-blue-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-20">
-            <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              ⭐ Testimonials
-            </span>
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">What Our Clients <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Say</span></h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Join satisfied businesses that have transformed with our premium solutions

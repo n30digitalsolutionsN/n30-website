@@ -203,33 +203,50 @@ export default function ManticsCaseStudy() {
             </div>
           </div>
 
-          {/* Admin Dashboard */}
-          <div className="mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-8">Admin Dashboard for Club Management</h2>
-            <p className="text-gray-700 mb-8 leading-relaxed">
-              One of the key features of the project is a centralized Admin Dashboard, accessible only to the team's authorized staff.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl p-10 border border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Dashboard Provides:</h3>
-                <ul className="space-y-4">
-                  {['Clean, organized tables', 'Pagination & search', 'Submission timestamps', 'Form-specific filtering', 'Mobile-friendly layout', 'Data export tools'].map((item, idx) => (
-                    <li key={idx} className="flex gap-3 items-start">
-                      <span className="text-blue-600 font-bold mt-1">•</span>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-linear-to-br from-blue-600 to-cyan-600 rounded-2xl p-10 text-white flex flex-col justify-center">
-                <div className="text-6xl mb-4">📊</div>
-                <p className="text-xl font-bold mb-4">Digital Control Center</p>
-                <p className="text-blue-100 leading-relaxed">
-                  Turns the website into a comprehensive management platform for the Butibam Mantics, giving staff real-time access to all submissions and operations data.
-                </p>
-              </div>
-            </div>
-          </div>
+         {/* Admin Dashboard */}
+<section className="py-24 px-4 bg-gray-50">
+  <div className="container mx-auto max-w-6xl mb-16">
+    
+    <h2 className="text-4xl font-black text-gray-900 mb-6">Admin Dashboard for Club Management</h2>
+    <p className="text-gray-700 mb-10 leading-relaxed">
+      One of the most important features of this project is a centralized Admin Dashboard, accessible only to authorized staff of the team.
+      It helps manage submissions, monitor activities, and make data-driven decisions quickly and efficiently.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      {/* Dashboard Features */}
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-10 border border-gray-200">
+        <h3 className="text-2xl font-bold text-gray-900 mb-6">Dashboard Provides:</h3>
+        <ul className="space-y-4">
+          {[
+            'Clean, organized tables',
+            'Pagination & search',
+            'Submission timestamps',
+            'Form-specific filtering',
+            'Mobile-friendly layout',
+            'Data export tools'
+          ].map((item, idx) => (
+            <li key={idx} className="flex gap-3 items-start">
+              <span className="text-blue-600 font-bold mt-1">•</span>
+              <span className="text-gray-700">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Dashboard Highlight */}
+      <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-10 text-white flex flex-col justify-center">
+        <div className="text-6xl mb-4">📊</div>
+        <p className="text-xl font-bold mb-4">Digital Control Center</p>
+        <p className="text-blue-100 leading-relaxed">
+          Transforms the website into a complete management platform for the Butibam Mantics, giving staff real-time access to all submissions and operational data in one place.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
           {/* SEO Section */}
           <div className="mb-16">
