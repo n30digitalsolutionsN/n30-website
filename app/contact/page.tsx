@@ -152,11 +152,17 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">Address</h3>
-                      <p className="text-gray-700 text-lg">
-                        123 Digital Street<br />
-                        Tech City, TC 12345<br />
-                        Country
+                      <p className="text-gray-700 text-lg font-semibold mb-2">
+                        Room 1, Butibam Resource Centre<br />
+                        Butibam, Lae<br />
+                        Morobe Province, Papua New Guinea
                       </p>
+                      <p className="text-blue-600 font-mono text-sm bg-blue-50 px-3 py-2 rounded">
+                        📍 What3Words: 72G8+95G
+                      </p>
+                      <a href="https://maps.app.goo.gl/your-google-maps-link" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                        View on Google Maps →
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -170,7 +176,7 @@ export default function Contact() {
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">Phone</h3>
                       <a href="tel:+1234567890" className="text-blue-600 hover:text-blue-700 text-lg font-bold">
-                        +1 (234) 567-890
+                        +675 7968 9919
                       </a>
                     </div>
                   </div>
@@ -185,7 +191,7 @@ export default function Contact() {
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">Email</h3>
                       <a href="mailto:info@n30digital.com" className="text-blue-600 hover:text-blue-700 text-lg font-bold">
-                        info@n30digital.com
+                        n30digitalsolutions.proton.me
                       </a>
                     </div>
                   </div>
@@ -194,14 +200,22 @@ export default function Contact() {
 
               {/* Map */}
               <div className="mt-8 bg-linear-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Location</h3>
-                <iframe
-                  width="100%"
-                  height="300"
-                  style={{ border: 0, borderRadius: '8px' }}
-                  loading="lazy"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890123!2d-74.00601234567890!3d40.71277778901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27f18f15b9%3A0x123456789!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1234567890123"
-                ></iframe>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Find Us on the Map</h3>
+                <div className="rounded-lg overflow-hidden">
+                  <iframe
+                    width="100%"
+                    height="400"
+                    style={{ border: 0, borderRadius: '8px' }}
+                    loading="lazy"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3994.4823896505816!2d146.98516!3d-6.72138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x681e8f5e5f5e5e5f%3A0x0!2sButibam%2C%20Lae%2C%20Morobe!5e0!3m2!1sen!2spg!4v1670000000000"
+                    allowFullScreen=""
+                    aria-hidden="false"
+                    tabIndex={0}
+                  ></iframe>
+                </div>
+                <p className="text-center text-gray-600 mt-4 text-sm">
+                  What3Words: <span className="font-mono font-bold text-blue-600">72G8+95G</span> • Butibam, Lae, Morobe Province
+                </p>
               </div>
             </div>
           </div>
