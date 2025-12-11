@@ -210,7 +210,7 @@ export default function ManticsCaseStudy() {
               One of the key features of the project is a centralized Admin Dashboard, accessible only to the team's authorized staff.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-10 border border-gray-200">
+              <div className="bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl p-10 border border-gray-200">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Dashboard Provides:</h3>
                 <ul className="space-y-4">
                   {['Clean, organized tables', 'Pagination & search', 'Submission timestamps', 'Form-specific filtering', 'Mobile-friendly layout', 'Data export tools'].map((item, idx) => (
@@ -240,7 +240,7 @@ export default function ManticsCaseStudy() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {['Custom metadata for each page', 'Social sharing preview cards (OG Tags)', 'Google-friendly SEO structure', 'Optimized performance scores', 'Clean URLs and accessibility markup'].map((item, idx) => (
                 <div key={idx} className="flex gap-4 items-start p-6 bg-blue-50 rounded-xl border border-blue-200">
-                  <FaCheckCircle className="text-blue-600 mt-1 flex-shrink-0" size={20} />
+                  <FaCheckCircle className="text-blue-600 mt-1 shrink-0" size={20} />
                   <span className="text-gray-700 font-semibold">{item}</span>
                 </div>
               ))}

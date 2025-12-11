@@ -311,13 +311,13 @@ export default function Home() {
             </div>
 
             {/* Add More Partners Placeholder Cards */}
-            <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-10 border-2 border-dashed border-gray-300 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col items-center justify-center">
+            <div className="group relative bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl p-10 border-2 border-dashed border-gray-300 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col items-center justify-center">
               <div className="text-6xl mb-4 opacity-50">+</div>
               <p className="text-gray-600 font-semibold text-center">Your Partnership Opportunity</p>
               <p className="text-gray-500 text-sm mt-2 text-center">Let's collaborate and grow together</p>
             </div>
 
-            <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-10 border-2 border-dashed border-gray-300 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col items-center justify-center">
+            <div className="group relative bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl p-10 border-2 border-dashed border-gray-300 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col items-center justify-center">
               <div className="text-6xl mb-4 opacity-50">+</div>
               <p className="text-gray-600 font-semibold text-center">Your Partnership Opportunity</p>
               <p className="text-gray-500 text-sm mt-2 text-center">Let's collaborate and grow together</p>
@@ -406,7 +406,7 @@ export default function Home() {
 
               <div className="space-y-6 mb-10">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-blue-600 text-white font-bold">
                       1
                     </div>
@@ -420,7 +420,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-blue-600 text-white font-bold">
                       2
                     </div>
@@ -434,7 +434,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-green-600 text-white font-bold">
                       3
                     </div>
