@@ -26,7 +26,7 @@ export const organizationStructuredData = {
   "contact": {
     "@type": "ContactPoint",
     "contactType": "Sales",
-    "telephone": "+675-47-25-5555",
+    "telephone": "+67579689919",
     "email": "n30digitalsolutions@proton.me"
   }
 };
@@ -45,8 +45,8 @@ export const localBusinessStructuredData = {
     "postalCode": "411",
     "addressCountry": "PG"
   },
-  "telephone": "+675-47-25-5555",
-  "priceRange": "$$",
+  "telephone": "+67579689919",
+  "priceRange": "PGK",
   "url": "https://n30digital.netlify.app",
   "areaServed": ["PNG", "Papua New Guinea", "Lae"],
   "serviceType": "Web Design, Web Development, Digital Strategy"
