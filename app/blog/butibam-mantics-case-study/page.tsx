@@ -8,16 +8,19 @@ import { useEffect } from 'react';
 export default function ManticsCaseStudy() {
   useEffect(() => {
     // Add meta tags dynamically for social sharing
+    const baseUrl = 'https://n30-website.vercel.app';
     const metaTags = [
       { property: 'og:title', content: 'Building the Butibam Mantics Rugby Team Website - N30 Digital Solutions' },
       { property: 'og:description', content: 'How modern web development transformed a local Lae rugby club with a complete digital upgrade, integrated database, and admin management tools.' },
-      { property: 'og:image', content: 'https://n30-website.vercel.app/mantics-hero.png' },
-      { property: 'og:url', content: 'https://n30-website.vercel.app/blog/butibam-mantics-case-study' },
+      { property: 'og:image', content: `${baseUrl}/mantics-hero.png` },
+      { property: 'og:url', content: `${baseUrl}/blog/butibam-mantics-case-study` },
       { property: 'og:type', content: 'article' },
+      { property: 'og:site_name', content: 'N30 Digital Solutions' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'Building the Butibam Mantics Rugby Team Website' },
       { name: 'twitter:description', content: 'Professional digital transformation for a local rugby club' },
-      { name: 'twitter:image', content: 'https://n30-website.vercel.app/mantics-hero.png' },
+      { name: 'twitter:image', content: `${baseUrl}/mantics-hero.png` },
+      { name: 'description', content: 'Explore how N30 Digital Solutions built a professional website for Butibam Mantics Rugby Team with database integration and admin dashboard.' },
     ];
 
     metaTags.forEach(tag => {
@@ -86,6 +89,8 @@ export default function ManticsCaseStudy() {
     { category: 'Admin Panel', tech: 'Integrated Dashboard' },
     { category: 'Hosting', tech: 'Netlify CDN' },
   ];
+
+  const shareUrl = 'https://n30-website.vercel.app/blog/butibam-mantics-case-study';
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
@@ -201,15 +206,45 @@ export default function ManticsCaseStudy() {
 
           {/* Tech Stack */}
           <div className="mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-8">Enterprise-Grade Technology Stack</h2>
-            <p className="text-gray-700 mb-8 leading-relaxed">
+            <h2 className="text-4xl font-black text-gray-900 mb-12">Enterprise-Grade Technology Stack</h2>
+            <p className="text-gray-700 mb-12 leading-relaxed text-lg">
               The build uses a modern and efficient stack designed for performance, reliability, and scalability:
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {techStack.map((item, idx) => (
-                <div key={idx} className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 transition-colors">
-                  <p className="text-sm text-blue-600 font-bold mb-2">{item.category}</p>
-                  <p className="text-2xl font-bold text-gray-900">{item.tech}</p>
+                <div 
+                  key={idx} 
+                  className="group relative bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-blue-500 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                >
+                  {/* Background gradient on hover */}
+                  <div className="absolute inset-0 bg-linear-to-br from-blue-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Icon/Badge */}
+                  <div className="relative mb-6 inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-blue-500 to-cyan-500 rounded-xl text-white text-2xl font-bold shadow-lg">
+                    {idx === 0 && '⚛️'}
+                    {idx === 1 && '🗄️'}
+                    {idx === 2 && '🔧'}
+                    {idx === 3 && '📊'}
+                    {idx === 4 && '🚀'}
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="relative">
+                    <p className="text-xs text-blue-600 font-bold uppercase tracking-widest mb-3">{item.category}</p>
+                    <p className="text-2xl font-black text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{item.tech}</p>
+                    
+                    {/* Descriptive text */}
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {idx === 0 && 'Modern React framework with Next.js for server-side rendering and optimal performance'}
+                      {idx === 1 && 'Enterprise-grade relational database for reliable data persistence and complex queries'}
+                      {idx === 2 && 'Serverless API routes for secure backend operations and scalability'}
+                      {idx === 3 && 'Centralized dashboard for real-time data visualization and management'}
+                      {idx === 4 && 'Global CDN with optimized caching for lightning-fast content delivery'}
+                    </p>
+                  </div>
+                  
+                  {/* Accent line */}
+                  <div className="absolute bottom-0 left-0 w-0 h-1 bg-linear-to-r from-blue-500 to-cyan-500 group-hover:w-full transition-all duration-300"></div>
                 </div>
               ))}
             </div>
@@ -413,13 +448,28 @@ export default function ManticsCaseStudy() {
           <div className="border-t border-gray-200 pt-12">
             <p className="text-gray-600 font-semibold mb-6">Share this case study:</p>
             <div className="flex gap-4 flex-wrap">
-              <a href="#" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold">
-                📱 Share on LinkedIn
+              <a 
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+              >
+                💼 Share on LinkedIn
               </a>
-              <a href="#" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors font-semibold">
-                𝕏 Share on Twitter
+              <a 
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold"
+              >
+                f Share on Facebook
               </a>
-              <a href="#" className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold">
+              <a 
+                href={`https://wa.me/?text=Check%20out%20this%20case%20study%20on%20the%20Butibam%20Mantics%20Rugby%20Team%20Website%20-%20${encodeURIComponent(shareUrl)}`}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
+              >
                 💬 Share on WhatsApp
               </a>
             </div>
