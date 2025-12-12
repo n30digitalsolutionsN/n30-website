@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// EmailJS API endpoint
+const EMAILJS_API_URL = 'https://api.emailjs.com/api/v1.0/email/send';
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -30,6 +33,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check for required environment variables
+    const serviceId = process.env.EMAILJS_SERVICE_ID;
+    const templateId = process.env.EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('Missing EmailJS configuration');
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: 'Email service is not properly configured. Please contact the administrator.' 
+        },
+        { status: 500 }
+      );
+    }
+
     // Log submission for debugging
     console.log('Contact Form Submission:', {
       name,
@@ -38,8 +57,38 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     });
 
-    // Email.js is handled on the client side via the contact form
-    // This API just validates and logs the submission
+    // Send email via EmailJS API
+    const emailResponse = await fetch(EMAILJS_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        service_id: serviceId,
+        template_id: templateId,
+        user_id: publicKey,
+        template_params: {
+          from_name: name,
+          from_email: email,
+          message: message,
+          to_email: 'e80085288@gmail.com',
+          reply_to_email: email,
+        },
+      }),
+    });
+
+    if (!emailResponse.ok) {
+      const errorData = await emailResponse.json();
+      console.error('EmailJS API error:', errorData);
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: 'Failed to send email. Please try again later.' 
+        },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
       {
         success: true,
