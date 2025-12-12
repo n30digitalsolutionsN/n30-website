@@ -41,6 +41,11 @@ export default function Contact() {
         throw new Error(data.message || 'Failed to send message');
       }
 
+      // Track conversion event for form submission
+      if (typeof window !== 'undefined' && (window as any).trackConversion) {
+        (window as any).trackConversion('contact_form_submission');
+      }
+
       setSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setSubmitted(false), 5000);
@@ -48,6 +53,13 @@ export default function Contact() {
       setError(err.message || 'An error occurred. Please try again.');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleWhatsAppClick = () => {
+    // Track conversion event for WhatsApp engagement
+    if (typeof window !== 'undefined' && (window as any).trackConversion) {
+      (window as any).trackConversion('whatsapp_engagement');
     }
   };
 
@@ -177,7 +189,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">WhatsApp</h3>
-                      <a href="https://wa.me/6757968919" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 text-lg font-bold">
+                      <a href="https://wa.me/6757968919" target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick} className="text-green-600 hover:text-green-700 text-lg font-bold">
                         +675 7968 9919
                       </a>
                       <p className="text-gray-600 text-sm mt-2">Click to chat with us on WhatsApp</p>

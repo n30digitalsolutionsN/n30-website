@@ -12,13 +12,14 @@ export default function Footer() {
       { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
       { label: 'Services', href: '/services' },
+      { label: 'Pricing', href: '/pricing' },
       { label: 'Blog', href: '/blog' },
     ],
     resources: [
+      { label: 'Testimonials', href: '/testimonials' },
       { label: 'Contact', href: '/contact' },
       { label: 'Privacy Policy', href: '#' },
       { label: 'Terms of Service', href: '#' },
-      { label: 'Sitemap', href: '#' },
     ],
   };
 
@@ -134,7 +135,27 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
+        {/* CTA Section */}
+        <div className="bg-linear-to-r from-blue-600/20 to-cyan-600/20 rounded-2xl p-10 border border-blue-500/30 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h4 className="font-bold text-white mb-2 text-lg">🚀 Ready to Launch?</h4>
+              <p className="text-gray-300 text-sm">Get your business online with an affordable, professional website.</p>
+            </div>
+            <div>
+              <h4 className="font-bold text-white mb-2 text-lg">💬 Questions?</h4>
+              <p className="text-gray-300 text-sm">Reach out anytime. We're here to help your business succeed.</p>
+            </div>
+            <div className="flex items-center justify-center md:justify-start">
+              <Link
+                href="/contact"
+                className="bg-linear-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 hover:scale-105"
+              >
+                Get Started Today →
+              </Link>
+            </div>
+          </div>
+        </div>
         <div className="border-t border-gray-700 my-12"></div>
 
         {/* Bottom Section */}

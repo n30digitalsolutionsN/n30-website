@@ -27,7 +27,7 @@ export const organizationStructuredData = {
     "@type": "ContactPoint",
     "contactType": "Sales",
     "telephone": "+675-47-25-5555",
-    "email": "hello@n30digital.com"
+    "email": "n30digitalsolutions@proton.me"
   }
 };
 

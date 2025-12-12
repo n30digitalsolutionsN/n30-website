@@ -2,10 +2,55 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { FaCalendar, FaUser } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaCalendar, FaUser, FaArrowRight } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [email, setEmail] = useState('');
+  const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [subscribeMessage, setSubscribeMessage] = useState('');
+
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!email) {
+      setSubscribeMessage('Please enter a valid email address');
+      setSubscribeStatus('error');
+      return;
+    }
+
+    setSubscribeStatus('loading');
+    
+    try {
+      // Initialize EmailJS with your public key
+      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '');
+      
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+        {
+          subscriber_email: email,
+          to_email: 'subscribe@n30digital.com',
+        }
+      );
+
+      setSubscribeStatus('success');
+      setSubscribeMessage('✓ Successfully subscribed! Check your email for confirmation.');
+      setEmail('');
+      
+      // Reset message after 5 seconds
+      setTimeout(() => {
+        setSubscribeStatus('idle');
+        setSubscribeMessage('');
+      }, 5000);
+    } catch (error) {
+      setSubscribeStatus('error');
+      setSubscribeMessage('Failed to subscribe. Please try again later.');
+      console.error('Newsletter subscription error:', error);
+    }
+  };
 
   const blogPosts = [
     {
@@ -16,6 +61,8 @@ export default function Blog() {
       date: 'Dec 9, 2025',
       category: 'Case Study',
       slug: 'butibam-mantics-case-study',
+      image: '/mantics-hero.png',
+      readTime: '8 min read',
     },
   ];
 
@@ -68,55 +115,82 @@ export default function Blog() {
       </section>
 
       {/* Blog Posts */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-20 px-4 bg-linear-to-b from-white to-gray-50">
+        <div className="container mx-auto max-w-5xl">
           {filteredPosts.length > 0 ? (
-            <div className="space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-10">
               {filteredPosts.map((post) => (
-                <article
-                  key={post.id}
-                  className="bg-linear-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
-                    <Link href={`/blog/${post.slug}`}>
-                      <h2 className="text-3xl font-bold text-gray-900 hover:text-blue-600 cursor-pointer transition-colors">
-                        {post.title}
-                      </h2>
-                    </Link>
-                    <span className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full font-semibold text-sm whitespace-nowrap">
-                      {post.category}
-                    </span>
-                  </div>
-
-                  <p className="text-gray-700 text-lg mb-6">{post.summary}</p>
-
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                    <div className="flex flex-col sm:flex-row gap-6 text-gray-600">
-                      <div className="flex items-center gap-2">
-                        <FaCalendar size={16} />
-                        <span>{post.date}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <FaUser size={16} />
-                        <span>{post.author}</span>
+                <Link key={post.id} href={`/blog/${post.slug}`}>
+                  <article className="group h-full bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-400 shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col">
+                    {/* Image Section */}
+                    <div className="relative h-56 md:h-64 overflow-hidden bg-gray-200">
+                      {post.image ? (
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                          <span className="text-white text-6xl">📝</span>
+                        </div>
+                      )}
+                      {/* Category Badge */}
+                      <div className="absolute top-4 right-4">
+                        <span className="bg-blue-600 text-white px-4 py-2 rounded-full font-semibold text-sm shadow-lg">
+                          {post.category}
+                        </span>
                       </div>
                     </div>
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="text-blue-600 hover:text-blue-700 font-bold transition-colors"
-                    >
-                      Read More →
-                    </Link>
-                  </div>
-                </article>
+
+                    {/* Content Section */}
+                    <div className="p-6 md:p-8 flex flex-col grow">
+                      {/* Title */}
+                      <h2 className="text-2xl md:text-xl lg:text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                        {post.title}
+                      </h2>
+
+                      {/* Summary */}
+                      <p className="text-gray-600 text-base mb-6 grow line-clamp-3">
+                        {post.summary}
+                      </p>
+
+                      {/* Meta Information */}
+                      <div className="border-t border-gray-200 pt-4">
+                        <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500 mb-4">
+                          <div className="flex items-center gap-2">
+                            <FaCalendar size={14} />
+                            <span>{post.date}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <FaUser size={14} />
+                            <span>{post.author}</span>
+                          </div>
+                          {post.readTime && (
+                            <span className="text-gray-500">{post.readTime}</span>
+                          )}
+                        </div>
+
+                        {/* Read More Button */}
+                        <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+                          Read More
+                          <FaArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <p className="text-xl text-gray-600 mb-4">No articles found matching your search.</p>
+            <div className="text-center py-20">
+              <div className="text-7xl mb-6">🔍</div>
+              <p className="text-2xl font-bold text-gray-900 mb-3">No articles found</p>
+              <p className="text-lg text-gray-600 mb-6">No articles match your search for "{searchTerm}"</p>
               <button
                 onClick={() => setSearchTerm('')}
-                className="text-blue-600 hover:text-blue-700 font-bold"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-colors"
               >
                 Clear search
               </button>
@@ -132,19 +206,31 @@ export default function Blog() {
           <p className="text-xl mb-8 text-blue-50">
             Subscribe to our newsletter for the latest insights and tips
           </p>
-          <form className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={subscribeStatus === 'loading'}
+              className="flex-1 px-6 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-50"
             />
             <button
               type="submit"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold transition-colors whitespace-nowrap"
+              disabled={subscribeStatus === 'loading'}
+              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold transition-colors whitespace-nowrap disabled:opacity-50"
             >
-              Subscribe
+              {subscribeStatus === 'loading' ? 'Subscribing...' : 'Subscribe'}
             </button>
           </form>
+          {subscribeMessage && (
+            <p className={`mt-4 text-sm ${
+              subscribeStatus === 'success' ? 'text-green-100' : 'text-red-100'
+            }`}>
+              {subscribeMessage}
+            </p>
+          )}
         </div>
       </section>
     </div>

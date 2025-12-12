@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaCode, FaDatabase, FaShieldAlt } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaCode, FaDatabase, FaShieldAlt, FaUser, FaCalendar } from 'react-icons/fa';
 import { useEffect } from 'react';
 
 export default function ManticsCaseStudy() {
@@ -94,55 +94,71 @@ export default function ManticsCaseStudy() {
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-32 px-4 bg-cover bg-center text-white overflow-hidden" style={{
-        backgroundImage: 'linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 58, 138, 0.85) 100%), url(/mantics-hero.png)',
-        backgroundAttachment: 'fixed',
-      }}>
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute -top-40 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/3 -left-32 w-80 h-80 bg-cyan-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        </div>
-
-        <div className="relative container mx-auto max-w-4xl">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 mb-8 transition-colors">
-            <FaArrowLeft /> Back to Blog
-          </Link>
-          
-          <div className="mb-8 inline-block">
-            <span className="bg-blue-500/20 text-blue-200 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm border border-blue-400/30">
-              📱 Case Study
-            </span>
+      {/* Hero Section with Image Background */}
+      <section className="relative pt-20 pb-0 px-4 overflow-hidden">
+        <div className="container mx-auto max-w-5xl">
+          {/* Breadcrumb & Badge */}
+          <div className="mb-8">
+            <Link href="/blog" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-6 transition-colors font-semibold">
+              <FaArrowLeft size={14} /> Back to Blog
+            </Link>
+            
+            <div className="inline-block mb-6">
+              <span className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-bold">
+                📱 Case Study
+              </span>
+            </div>
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            Building the Butibam Mantics
-            <br />
-            <span className="bg-linear-to-r from-blue-300 via-cyan-300 to-blue-200 bg-clip-text text-transparent">Rugby Team Website</span>
-          </h1>
-          
-          <p className="text-xl text-blue-100 max-w-3xl leading-relaxed mb-8">
-            How modern web development transformed a local Lae rugby club with a complete digital upgrade, integrated database, and admin management tools.
-          </p>
 
-          <div className="flex flex-wrap gap-4 text-blue-200 text-sm font-semibold">
-            <span>N30 Digital Solutions</span>
-            <span>•</span>
-            <span>December 9, 2025</span>
-            <span>•</span>
-            <span>10 min read</span>
+          {/* Title Section */}
+          <div className="mb-12">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 leading-tight">
+              Building the Butibam Mantics
+              <br />
+              <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Rugby Team Website</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl leading-relaxed mb-8">
+              How modern web development transformed a local Lae rugby club with a complete digital upgrade, integrated database, and admin management tools.
+            </p>
+
+            <div className="flex flex-wrap gap-6 text-gray-600 text-base font-semibold">
+              <div className="flex items-center gap-2">
+                <FaUser size={16} />
+                <span>N30 Digital Solutions</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <FaCalendar size={16} />
+                <span>December 9, 2025</span>
+              </div>
+              <span className="text-gray-500">10 min read</span>
+            </div>
+          </div>
+
+          {/* Featured Image Hero */}
+          <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl mb-0">
+            <div className="relative h-96 md:h-[500px] lg:h-[600px] w-full overflow-hidden bg-gray-200">
+              <Image
+                src="/mantics-hero.png"
+                alt="Butibam Mantics Rugby Team Website"
+                fill
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                priority
+              />
+            </div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-20 px-4 bg-linear-to-b from-white via-blue-50 to-white">
+        <div className="container mx-auto max-w-5xl">
           
           {/* Introduction */}
-          <div className="prose prose-lg max-w-none mb-16">
-            <p className="text-xl text-gray-700 leading-relaxed mb-8">
-              Community sports deserve professional digital experiences — and that's exactly what we set out to deliver with the new Butibam Mantics Rugby Team website, now live at <a href="https://mantics.netlify.app" className="text-blue-600 hover:text-blue-700 font-semibold">mantics.netlify.app</a>.
+          <div className="mb-20">
+            <p className="text-2xl text-gray-800 leading-relaxed font-light mb-8">
+              Community sports deserve professional digital experiences — and that's exactly what we set out to deliver with the new Butibam Mantics Rugby Team website, now live at <a href="https://mantics.netlify.app" className="text-blue-600 hover:text-blue-700 font-bold underline">mantics.netlify.app</a>.
             </p>
 
             <p className="text-xl text-gray-700 leading-relaxed">
@@ -150,56 +166,37 @@ export default function ManticsCaseStudy() {
             </p>
           </div>
 
-          {/* Website Screenshot */}
-          <div className="mb-16">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-gray-200 hover:shadow-3xl transition-shadow duration-300">
-              <div className="relative h-96 md:h-[500px] w-full overflow-hidden bg-gray-100">
-                <Image
-                  src="/mantics-hero.png"
-                  alt="Butibam Mantics Rugby Team Website"
-                  fill
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  priority
-                />
-              </div>
-              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none"></div>
-            </div>
-            <p className="text-center text-gray-600 text-sm mt-4 italic">
-              The Butibam Mantics website - A modern, professional digital home for the rugby team
-            </p>
-          </div>
-
           {/* Project Overview */}
-          <div className="mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-8">Strategic Project Overview</h2>
-            <div className="bg-linear-to-br from-blue-50 to-cyan-50 rounded-2xl p-10 border border-blue-200">
-              <p className="text-gray-700 mb-6 leading-relaxed">
+          <div className="mb-20">
+            <h2 className="text-5xl font-black text-gray-900 mb-12">Strategic Project Overview</h2>
+            <div className="bg-linear-to-br from-blue-50 via-white to-cyan-50 rounded-3xl p-12 md:p-16 border-2 border-blue-200 shadow-xl">
+              <p className="text-gray-700 mb-8 leading-relaxed text-lg">
                 N30 Digital Solutions partnered with the Butibam Mantics Rugby Team to design and develop a full-featured modern website. The main goals were:
               </p>
-              <ul className="space-y-4">
-                <li className="flex gap-4">
-                  <span className="text-blue-600 font-bold mt-1">✓</span>
-                  <span className="text-gray-700">Create an attractive, mobile-friendly site</span>
+              <ul className="space-y-5 mb-8">
+                <li className="flex gap-4 text-lg">
+                  <span className="text-blue-600 font-bold text-2xl shrink-0">✓</span>
+                  <span className="text-gray-700 pt-1">Create an attractive, mobile-friendly site reflecting the team's identity</span>
                 </li>
-                <li className="flex gap-4">
-                  <span className="text-blue-600 font-bold mt-1">✓</span>
-                  <span className="text-gray-700">Centralize team registration, contact, and membership forms</span>
+                <li className="flex gap-4 text-lg">
+                  <span className="text-blue-600 font-bold text-2xl shrink-0">✓</span>
+                  <span className="text-gray-700 pt-1">Centralize team registration, contact, and membership forms</span>
                 </li>
-                <li className="flex gap-4">
-                  <span className="text-blue-600 font-bold mt-1">✓</span>
-                  <span className="text-gray-700">Provide secure admin access for data review and management</span>
+                <li className="flex gap-4 text-lg">
+                  <span className="text-blue-600 font-bold text-2xl shrink-0">✓</span>
+                  <span className="text-gray-700 pt-1">Provide secure admin access for data review and management</span>
                 </li>
-                <li className="flex gap-4">
-                  <span className="text-blue-600 font-bold mt-1">✓</span>
-                  <span className="text-gray-700">Improve the team's visibility with strong SEO and metadata</span>
+                <li className="flex gap-4 text-lg">
+                  <span className="text-blue-600 font-bold text-2xl shrink-0">✓</span>
+                  <span className="text-gray-700 pt-1">Improve the team's visibility with strong SEO and metadata</span>
                 </li>
-                <li className="flex gap-4">
-                  <span className="text-blue-600 font-bold mt-1">✓</span>
-                  <span className="text-gray-700">Ensure the system is scalable for future competitions and events</span>
+                <li className="flex gap-4 text-lg">
+                  <span className="text-blue-600 font-bold text-2xl shrink-0">✓</span>
+                  <span className="text-gray-700 pt-1">Ensure the system is scalable for future competitions and events</span>
                 </li>
               </ul>
-              <p className="text-gray-700 mt-6 pt-6 border-t border-blue-200 italic">
-                The result is a smooth, high-performance online platform that reflects the club's identity and ambitions.
+              <p className="text-gray-700 pt-8 border-t-2 border-blue-200 italic text-lg leading-relaxed">
+                "The result is a smooth, high-performance online platform that reflects the club's identity and ambitions."
               </p>
             </div>
           </div>

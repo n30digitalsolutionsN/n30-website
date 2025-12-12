@@ -27,10 +27,10 @@ export default function Home() {
   ];
 
   const stats = [
-    { number: '20+', label: 'Successful Projects', trend: '+45%' },
-    { number: '99.9%', label: 'Uptime Guarantee', trend: 'Industry Leading' },
-    { number: '48h', label: 'Avg Response Time', trend: '-20%' },
-    { number: '4.9/5', label: 'Client Rating', trend: '★★★★★' },
+    { number: '1', label: 'Startup Agency', trend: 'Founded Nov 2025' },
+    { number: '100%', label: 'Client Success', trend: 'Satisfaction Rate' },
+    { number: '∞', label: 'Growth Potential', trend: 'Scalable Solutions' },
+    { number: '24/7', label: 'Dedicated Support', trend: 'Always Available' },
   ];
 
   const features = [
@@ -526,6 +526,55 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Startup Advantage Section */}
+      <section className="py-32 px-4 bg-linear-to-b from-blue-50 to-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-24">
+            <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              🚀 Fresh & Hungry
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
+              Why Partner With A <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Startup Agency</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              New startups bring energy, innovation, and commitment to growth. We're not just building websites—we're building partnerships.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300">
+              <div className="text-4xl mb-4">⚡</div>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Affordable Pricing</h3>
+              <p className="text-gray-600">We offer competitive rates without compromising quality. Perfect for growing businesses.</p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300">
+              <div className="text-4xl mb-4">💡</div>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Modern Technology</h3>
+              <p className="text-gray-600">We use the latest tools and frameworks to build fast, secure, scalable solutions.</p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300">
+              <div className="text-4xl mb-4">🤝</div>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Personal Attention</h3>
+              <p className="text-gray-600">You're not just a ticket number. We treat every client as a partner in success.</p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Results Focused</h3>
+              <p className="text-gray-600">We measure success by your business growth, not just completed deliverables.</p>
+            </div>
+          </div>
+
+          <div className="mt-16 bg-linear-to-r from-blue-600/10 to-cyan-600/10 rounded-2xl p-10 border border-blue-200">
+            <p className="text-center text-gray-700 text-lg leading-relaxed">
+              <span className="font-bold text-blue-600">Limited Slots Available:</span> As a new agency, we're taking on a limited number of clients to ensure exceptional quality and personal attention. Be part of our founding client success stories.
+            </p>
           </div>
         </div>
       </section>

@@ -43,13 +43,13 @@ export default function About() {
           Our Journey
         </span>
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Helping Startups Grow Since 2022
+          Empowering Lae Businesses Since November 2025
         </h2>
         <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-          We are a small but passionate team focused on helping startups turn their ideas into something real. We believe in practical solutions, honest advice, and working side by side with founders.
+          N30 Digital Solutions is a fresh startup born in November 2025, dedicated to bringing professional digital solutions to local Lae businesses. We understand the unique challenges of our community and deliver affordable, high-impact web solutions that actually work.
         </p>
         <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-          Our approach is simple: listen, understand, and build. We use modern tools and straightforward strategies to get things done without overcomplicating them.
+          Our mission is simple: help local businesses thrive in the digital age. We combine modern technology with affordable pricing and genuine care for our clients' success. Starting with innovative partners like Butibam Mantics, we're building a track record of transforming how Lae businesses operate online.
         </p>
 
         <div className="space-y-4">
@@ -81,16 +81,16 @@ export default function About() {
       <div className="bg-linear-to-br from-blue-500 to-indigo-500 rounded-2xl p-12 text-white shadow-lg">
         <div className="space-y-12">
           <div className="border-b border-white/20 pb-6">
-            <div className="text-5xl font-bold mb-2">100+</div>
-            <p className="text-lg text-blue-200">Clients We’ve Helped</p>
+            <div className="text-5xl font-bold mb-2">1st</div>
+            <p className="text-lg text-blue-200">Success Story: Butibam Mantics</p>
           </div>
           <div className="border-b border-white/20 pb-6">
-            <div className="text-5xl font-bold mb-2">95%</div>
-            <p className="text-lg text-blue-200">Client Satisfaction</p>
+            <div className="text-5xl font-bold mb-2">100%</div>
+            <p className="text-lg text-blue-200">Client Satisfaction Rate</p>
           </div>
           <div>
-            <div className="text-5xl font-bold mb-2">4.8★</div>
-            <p className="text-lg text-blue-200">Average Ratings</p>
+            <div className="text-5xl font-bold mb-2">📈</div>
+            <p className="text-lg text-blue-200">Growing Local Impact</p>
           </div>
         </div>
       </div>

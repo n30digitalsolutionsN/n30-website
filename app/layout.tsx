@@ -101,6 +101,20 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-HJMXXMF7TY');
+              
+              // Track page_view event
+              gtag('event', 'page_view', {
+                'page_title': document.title,
+                'page_path': window.location.pathname
+              });
+              
+              // Setup conversion event tracking for contact form submissions
+              window.trackConversion = function(event_name) {
+                gtag('event', event_name, {
+                  'event_category': 'engagement',
+                  'timestamp': new Date().toISOString()
+                });
+              };
             `,
           }}
         />
@@ -133,8 +147,46 @@ export default function RootLayout({
               "contact": {
                 "@type": "ContactPoint",
                 "contactType": "Sales",
-                "email": "hello@n30digital.com"
+                "email": "n30digitalsolutions@proton.me"
               }
+            })
+          }}
+        />
+        
+        {/* Structured Data - LocalBusiness Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "N30 Digital Solutions",
+              "description": "Digital agency specializing in web design, web development, mobile apps, and digital solutions for businesses in Papua New Guinea.",
+              "url": "https://n30-website.vercel.app",
+              "logo": "https://n30-website.vercel.app/logo.png",
+              "image": "https://n30-website.vercel.app/og-image.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Butibam Resource Centre",
+                "addressLocality": "Lae",
+                "addressRegion": "Morobe Province",
+                "postalCode": "411",
+                "addressCountry": "PG"
+              },
+              "telephone": "+675 7968 9919",
+              "email": "n30digitalsolutions@proton.me",
+              "sameAs": [
+                "https://facebook.com/n30digital",
+                "https://twitter.com/n30digital",
+                "https://linkedin.com/company/n30digital"
+              ],
+              "priceRange": "$$",
+              "areaServed": {
+                "@type": "City",
+                "name": "Lae"
+              },
+              "serviceType": ["Web Design", "Web Development", "Mobile App Development", "Digital Solutions"],
+              "openingHours": "Mo-Fr 08:00-17:00"
             })
           }}
         />
