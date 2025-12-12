@@ -140,7 +140,7 @@ export default function RootLayout({
         />
         
         {/* Google Site Verification */}
-        <meta name="google-site-verification" content="your-verification-code-here" />
+        <meta name="google-site-verification" content="Bv0hIJRzMwNY3Sd4ITvRrMFyNjgQRK0TKGMvm7BwqMY" />
         
         {/* Additional SEO Meta Tags */}
         <meta name="theme-color" content="#0066ff" />
