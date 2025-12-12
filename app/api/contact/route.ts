@@ -78,12 +78,12 @@ export async function POST(request: NextRequest) {
     });
 
     if (!emailResponse.ok) {
-      const errorData = await emailResponse.json();
-      console.error('EmailJS API error:', errorData);
+      const errorText = await emailResponse.text();
+      console.error('EmailJS API error:', emailResponse.status, errorText);
       return NextResponse.json(
         { 
           success: false, 
-          message: 'Failed to send email. Please try again later.' 
+          message: 'Failed to send email. Please verify EmailJS credentials.' 
         },
         { status: 500 }
       );
