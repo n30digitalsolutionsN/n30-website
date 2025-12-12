@@ -66,7 +66,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             {/* WhatsApp Contact Link */}
             <a
-              href="https://wa.me/6757968919"
+              href="https://wa.me/67579691991"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-700 hover:text-green-600 font-semibold text-sm transition-colors duration-300 flex items-center gap-1"
@@ -132,7 +132,7 @@ export default function Navbar() {
             {/* Mobile WhatsApp Contact Link */}
             <div className="border-t border-gray-200 mt-4 pt-4">
               <a
-                href="https://wa.me/6757968919"
+                href="https://wa.me/67579691991"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-green-600 font-semibold transition-colors flex items-center gap-2"
