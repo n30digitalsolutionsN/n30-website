@@ -10,7 +10,7 @@
   - Email: n30digitalsolutions@proton.me
   - Service types: Web Design, Web Development, Mobile App Development
   - Opening hours: Mo-Fr 08:00-17:00
-  - Price range: $$ (moderate pricing)
+  - Price range: PGK (moderate pricing)
 - **Benefits**: Improves local search visibility, helps Google understand your business
 
 ### 2. **GA4 Conversion Tracking**

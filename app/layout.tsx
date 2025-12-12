@@ -180,7 +180,7 @@ export default function RootLayout({
                 "https://twitter.com/n30digital",
                 "https://linkedin.com/company/n30digital"
               ],
-              "priceRange": "$$",
+              "priceRange": "PGK",
               "areaServed": {
                 "@type": "City",
                 "name": "Lae"

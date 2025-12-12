@@ -8,7 +8,7 @@ export default function Pricing() {
     {
       id: 1,
       name: 'Startup Presence',
-      price: '$299-499',
+      price: 'PGK 299-499',
       period: 'one-time',
       description: 'Perfect for new businesses just getting online',
       features: [
@@ -31,7 +31,7 @@ export default function Pricing() {
     {
       id: 2,
       name: 'Professional Web',
-      price: '$599-899',
+      price: 'PGK 599-899',
       period: 'one-time',
       description: 'Our most popular choice - full-featured website',
       features: [
@@ -56,7 +56,7 @@ export default function Pricing() {
     {
       id: 3,
       name: 'Enterprise Solution',
-      price: '$1,299+',
+      price: 'PGK 1,299+',
       period: 'custom',
       description: 'Complete digital transformation with all features',
       features: [
