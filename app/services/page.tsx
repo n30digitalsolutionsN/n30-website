@@ -233,7 +233,7 @@ export default function Services() {
           </h2>
           
           <p className="text-xl md:text-2xl text-blue-50 max-w-3xl mx-auto leading-relaxed mb-10">
-            Join 500+ businesses that have already seen remarkable growth. Let's discuss how our premium services can drive your success.
+            Join businesses that have already seen remarkable growth. Let's discuss how our premium services can drive your success.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

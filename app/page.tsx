@@ -80,9 +80,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white overflow-hidden">
       {/* Hero Section - Premium Experience */}
-      <section className="relative pt-40 pb-40 px-4 bg-linear-to-br from-slate-950 via-blue-950 to-slate-950 text-white overflow-hidden">
-        {/* Premium animated background */}
-        <div className="absolute inset-0 opacity-30">
+      <section className="relative pt-40 pb-40 px-4 text-white overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/home/home-hero-bg.png)' }}>
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
+
+        {/* Premium animated background overlay */}
+        <div className="absolute inset-0 opacity-20">
           <div className="absolute -top-40 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute top-1/3 -left-32 w-80 h-80 bg-cyan-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
           <div className="absolute -bottom-20 right-1/3 w-72 h-72 bg-purple-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>

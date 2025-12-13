@@ -64,6 +64,17 @@ export default function Blog() {
   const blogPosts = [
     {
       id: 0,
+      title: 'How to Choose the Right Digital Agency in Lae',
+      summary: 'A practical guide to spotting red flags and finding an agency that actually cares about your success. Includes what to look for, questions to ask, and why N30 Digital is different.',
+      author: 'N30 Digital Solutions',
+      date: 'Dec 13, 2025',
+      category: 'Business Guide',
+      slug: 'choosing-right-agency-lae',
+      image: undefined,
+      readTime: '12 min read',
+    },
+    {
+      id: 1,
       title: 'Building the Butibam Mantics Rugby Team Website – A Complete Digital Upgrade',
       summary: 'How modern web development, database integration, and an admin dashboard transformed a local Lae rugby club\'s digital presence.',
       author: 'N30 Digital Solutions',
