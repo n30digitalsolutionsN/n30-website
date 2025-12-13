@@ -13,6 +13,13 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
+  // Debug: Log env var on component mount
+  console.log('Web3Forms Access Key:', process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY);
+  console.log('All env vars:', {
+    web3forms: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+    sanityId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  });
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
