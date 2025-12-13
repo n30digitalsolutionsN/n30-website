@@ -180,7 +180,7 @@ export default function RootLayout({
               "description": "Digital agency specializing in web design, web development, mobile apps, and digital solutions for businesses in Papua New Guinea.",
               "url": "https://n30-website.vercel.app",
               "logo": "https://n30-website.vercel.app/logo.png",
-              "image": "https://n30-website.vercel.app/og-image.jpg",
+              "image": "https://n30-website.vercel.app/logo.png",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Butibam Resource Centre",
