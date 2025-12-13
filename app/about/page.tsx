@@ -2,35 +2,6 @@
 
 import Image from 'next/image';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'About N30 Digital Solutions - Web Design & Development Agency',
-  description: 'Learn about N30 Digital Solutions, a premiere digital agency in Lae, PNG specializing in web design, development, and digital transformation for local businesses.',
-  keywords: ['about us', 'digital agency', 'web design', 'web development', 'Lae', 'team'],
-  openGraph: {
-    title: 'About N30 Digital Solutions',
-    description: 'Premier digital agency in Lae, PNG. Transforming businesses with modern web design and development.',
-    url: 'https://n30-website.vercel.app/about',
-    siteName: 'N30 Digital Solutions',
-    images: [
-      {
-        url: 'https://n30-website.vercel.app/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'N30 Digital Solutions Team',
-        type: 'image/png',
-      },
-    ],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About N30 Digital Solutions',
-    description: 'Meet the team behind Lae\'s leading digital agency',
-    images: ['https://n30-website.vercel.app/logo.png'],
-  },
-};
 
 export default function About() {
   const teamMembers = [
