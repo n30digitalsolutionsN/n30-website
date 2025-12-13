@@ -9,8 +9,8 @@ export const organizationStructuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "N30 Digital Solutions",
-  "url": "https://n30digital.netlify.app",
-  "logo": "https://n30digital.netlify.app/logo.png",
+  "url": "https://n30-website.vercel.app",
+  "logo": "https://n30-website.vercel.app/logo.png",
   "description": "Premier digital agency in Lae, Papua New Guinea providing web design, development, and digital solutions for businesses.",
   "sameAs": [
     "https://facebook.com/n30digital",
@@ -26,7 +26,7 @@ export const organizationStructuredData = {
   "contact": {
     "@type": "ContactPoint",
     "contactType": "Sales",
-    "telephone": "+67579689919",
+    "telephone": "+675 7968 9919",
     "email": "n30digitalsolutions@proton.me"
   }
 };
@@ -35,21 +35,27 @@ export const localBusinessStructuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "N30 Digital Solutions",
-  "image": "https://n30digital.netlify.app/og-image.jpg",
+  "image": "https://n30-website.vercel.app/logo.png",
   "description": "Digital agency providing web design, web development, and digital strategy services in Lae, Papua New Guinea",
+  "url": "https://n30-website.vercel.app",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Lae",
+    "streetAddress": "Room 1, Butibam Resource Centre",
     "addressLocality": "Lae",
-    "addressRegion": "Morobe",
+    "addressRegion": "Morobe Province",
     "postalCode": "411",
     "addressCountry": "PG"
   },
-  "telephone": "+67579689919",
+  "telephone": "+675 7968 9919",
+  "email": "n30digitalsolutions@proton.me",
   "priceRange": "PGK",
-  "url": "https://n30digital.netlify.app",
   "areaServed": ["PNG", "Papua New Guinea", "Lae"],
-  "serviceType": "Web Design, Web Development, Digital Strategy"
+  "serviceType": "Web Design, Web Development, Digital Strategy",
+  "sameAs": [
+    "https://facebook.com/n30digital",
+    "https://twitter.com/n30digital",
+    "https://linkedin.com/company/n30digital"
+  ]
 };
 
 export const businessStructuredData = {

@@ -4,6 +4,35 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaCalendar, FaUser, FaArrowRight } from 'react-icons/fa';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog - Digital Insights & Strategies - N30 Digital Solutions',
+  description: 'Read the latest articles on web design, digital marketing, business growth, and digital transformation for Lae businesses.',
+  keywords: ['blog', 'digital marketing', 'web design', 'business tips', 'digital strategy', 'insights'],
+  openGraph: {
+    title: 'Blog - Digital Insights & Strategies',
+    description: 'Latest articles on web design, digital transformation, and business growth strategies.',
+    url: 'https://n30-website.vercel.app/blog',
+    siteName: 'N30 Digital Solutions',
+    images: [
+      {
+        url: 'https://n30-website.vercel.app/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'N30 Blog',
+        type: 'image/png',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'N30 Digital Blog',
+    description: 'Digital insights and strategies for business growth',
+    images: ['https://n30-website.vercel.app/logo.png'],
+  },
+};
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState('');

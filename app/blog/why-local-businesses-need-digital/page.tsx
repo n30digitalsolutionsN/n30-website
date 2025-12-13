@@ -3,45 +3,38 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaCalendar, FaUser, FaArrowLeft, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Why Local Lae Businesses Need Digital Presence in 2025',
+  description: 'Discover why digital presence is crucial for local Lae businesses and how to get started with affordable solutions from N30 Digital.',
+  keywords: ['digital transformation', 'Lae businesses', 'online presence', 'digital marketing', 'local business', 'website'],
+  openGraph: {
+    title: 'Why Local Lae Businesses Need Digital Presence - N30 Digital',
+    description: 'Learn why digital transformation is essential for local Lae businesses and practical steps to build your online presence.',
+    url: 'https://n30-website.vercel.app/blog/why-local-businesses-need-digital',
+    siteName: 'N30 Digital Solutions',
+    images: [
+      {
+        url: 'https://n30-website.vercel.app/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Digital Presence for Lae Businesses',
+        type: 'image/png',
+      },
+    ],
+    type: 'article',
+    publishedTime: '2025-11-15',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Why Local Businesses Need Digital Presence',
+    description: 'Essential guide for Lae businesses going digital in 2025',
+    images: ['https://n30-website.vercel.app/logo.png'],
+  },
+};
 
 export default function WhyLocalBusinessesNeedDigital() {
-  useEffect(() => {
-    // Add meta tags dynamically for SEO
-    const baseUrl = 'https://n30-website.vercel.app';
-    const metaTags = [
-      { property: 'og:title', content: 'Why Local Lae Businesses Need Digital Presence in 2025' },
-      { property: 'og:description', content: 'Discover why digital presence is crucial for local Lae businesses and how to get started with affordable solutions.' },
-      { property: 'og:type', content: 'article' },
-      { property: 'og:site_name', content: 'N30 Digital Solutions' },
-      { name: 'description', content: 'Learn why digital transformation is essential for local Lae businesses and practical steps to build your online presence.' },
-      { name: 'keywords', content: 'digital transformation, Lae businesses, online presence, digital marketing, local business' },
-    ];
-
-    metaTags.forEach(tag => {
-      const element = document.createElement('meta');
-      if (tag.property) {
-        element.setAttribute('property', tag.property);
-      } else if (tag.name) {
-        element.setAttribute('name', tag.name);
-      }
-      element.setAttribute('content', tag.content);
-      document.head.appendChild(element);
-    });
-
-    return () => {
-      metaTags.forEach(tag => {
-        const element = document.querySelector(
-          tag.property 
-            ? `meta[property="${tag.property}"]`
-            : `meta[name="${tag.name}"]`
-        );
-        if (element) {
-          element.remove();
-        }
-      });
-    };
-  }, []);
 
   const reasons = [
     {

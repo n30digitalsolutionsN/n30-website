@@ -1,8 +1,35 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowRight, FaStar, FaCheckCircle } from 'react-icons/fa';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'N30 Digital Solutions - Web Design & Development in Lae, Papua New Guinea',
+  description: 'Premier digital agency in Lae, PNG. We deliver affordable, high-impact web design, development, and digital solutions for local businesses. Transform your online presence today.',
+  keywords: ['web design', 'web development', 'digital solutions', 'Lae', 'Papua New Guinea', 'business website', 'e-commerce', 'SEO'],
+  openGraph: {
+    title: 'N30 Digital Solutions - Web Design & Development in Lae',
+    description: 'Affordable, high-impact web design and development for Lae businesses. Transform your digital presence today.',
+    url: 'https://n30-website.vercel.app',
+    siteName: 'N30 Digital Solutions',
+    images: [
+      {
+        url: 'https://n30-website.vercel.app/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'N30 Digital Solutions',
+        type: 'image/png',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'N30 Digital Solutions - Lae Web Design & Development',
+    description: 'Transform your business with affordable digital solutions',
+    images: ['https://n30-website.vercel.app/logo.png'],
+  },
+};
 
 export default function Home() {
   const services = [

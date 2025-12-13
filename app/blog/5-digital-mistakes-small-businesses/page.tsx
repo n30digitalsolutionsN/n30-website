@@ -3,45 +3,38 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaCalendar, FaUser, FaArrowLeft, FaTimes, FaCheckCircle } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '5 Digital Mistakes Small Businesses Make (And How to Fix Them)',
+  description: 'Avoid these common digital mistakes that are costing small businesses money and customers. Learn proven solutions from N30 Digital.',
+  keywords: ['small business mistakes', 'digital marketing', 'website optimization', 'business growth', 'digital strategy'],
+  openGraph: {
+    title: '5 Digital Mistakes Small Businesses Make - N30 Digital Solutions',
+    description: 'Discover the 5 most common digital mistakes small businesses make and practical solutions to fix them.',
+    url: 'https://n30-website.vercel.app/blog/5-digital-mistakes-small-businesses',
+    siteName: 'N30 Digital Solutions',
+    images: [
+      {
+        url: 'https://n30-website.vercel.app/logo.png',
+        width: 1200,
+        height: 630,
+        alt: '5 Digital Mistakes',
+        type: 'image/png',
+      },
+    ],
+    type: 'article',
+    publishedTime: '2025-12-01',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '5 Digital Mistakes Small Businesses Make',
+    description: 'Avoid costly digital mistakes that hurt your business',
+    images: ['https://n30-website.vercel.app/logo.png'],
+  },
+};
 
 export default function FiveDigitalMistakes() {
-  useEffect(() => {
-    // Add meta tags dynamically for SEO
-    const baseUrl = 'https://n30-website.vercel.app';
-    const metaTags = [
-      { property: 'og:title', content: '5 Digital Mistakes Small Businesses Make (And How to Fix Them)' },
-      { property: 'og:description', content: 'Avoid these common digital mistakes that are costing small businesses money and customers. Learn proven solutions from N30 Digital.' },
-      { property: 'og:type', content: 'article' },
-      { property: 'og:site_name', content: 'N30 Digital Solutions' },
-      { name: 'description', content: 'Discover the 5 most common digital mistakes small businesses make and practical solutions to fix them.' },
-      { name: 'keywords', content: 'small business mistakes, digital marketing, website optimization, business growth' },
-    ];
-
-    metaTags.forEach(tag => {
-      const element = document.createElement('meta');
-      if (tag.property) {
-        element.setAttribute('property', tag.property);
-      } else if (tag.name) {
-        element.setAttribute('name', tag.name);
-      }
-      element.setAttribute('content', tag.content);
-      document.head.appendChild(element);
-    });
-
-    return () => {
-      metaTags.forEach(tag => {
-        const element = document.querySelector(
-          tag.property 
-            ? `meta[property="${tag.property}"]`
-            : `meta[name="${tag.name}"]`
-        );
-        if (element) {
-          element.remove();
-        }
-      });
-    };
-  }, []);
 
   const mistakes = [
     {
