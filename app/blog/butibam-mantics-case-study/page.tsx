@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     siteName: 'N30 Digital Solutions',
     images: [
       {
-        url: 'https://n30-website.vercel.app/logo.png',
+        url: 'https://n30-website.vercel.app/mantics-hero.png',
         width: 1200,
         height: 630,
-        alt: 'N30 Digital Solutions Logo',
+        alt: 'Butibam Mantics Rugby Team Website',
         type: 'image/png',
       },
     ],
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Building the Butibam Mantics Rugby Team Website - N30 Digital Solutions',
     description: 'Professional digital transformation for a local rugby club',
-    images: ['https://n30-website.vercel.app/logo.png'],
+    images: ['https://n30-website.vercel.app/mantics-hero.png'],
   },
 };
 
