@@ -111,9 +111,9 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mb-10 mt-8">
-            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium">⚡ Fast Results</span>
-            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium">🎯 Results Driven</span>
-            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium">💎 Premium Quality</span>
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium"></span>
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium"></span>
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium"></span>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

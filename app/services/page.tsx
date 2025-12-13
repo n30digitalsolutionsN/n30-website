@@ -97,7 +97,7 @@ export default function Services() {
         <div className="relative container mx-auto max-w-6xl text-center">
           <div className="mb-8 inline-block">
             <span className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-200 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm border border-blue-400/30">
-              <FaStar className="text-yellow-300" /> Trusted by 500+ Clients
+              <FaStar className="text-yellow-300" /> 
             </span>
           </div>
           
@@ -112,9 +112,9 @@ export default function Services() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium">⚡ Fast Delivery</span>
-            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium">🎯 Results Driven</span>
-            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium">💎 Premium Quality</span>
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium"></span>
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium"> </span>
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium"> </span>
           </div>
         </div>
       </section>
