@@ -34,11 +34,9 @@ export default function Contact() {
     setError('');
 
     try {
-      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '983b2ead-1282-4b3f-b7fe-7e43cf73e7a9';
       
-      if (!accessKey) {
-        throw new Error('Web3Forms access key is not configured');
-      }
+      console.log('Using access key:', accessKey);
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
