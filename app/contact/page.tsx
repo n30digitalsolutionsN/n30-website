@@ -13,13 +13,6 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  // Debug: Log env var on component mount
-  console.log('Web3Forms Access Key:', process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY);
-  console.log('All env vars:', {
-    web3forms: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-    sanityId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -35,8 +28,6 @@ export default function Contact() {
 
     try {
       const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '983b2ead-1282-4b3f-b7fe-7e43cf73e7a9';
-      
-      console.log('Using access key:', accessKey);
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
