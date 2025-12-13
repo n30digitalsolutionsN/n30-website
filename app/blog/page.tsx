@@ -4,7 +4,6 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaCalendar, FaUser, FaArrowRight } from 'react-icons/fa';
-import emailjs from '@emailjs/browser';
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,17 +23,31 @@ export default function Blog() {
     setSubscribeStatus('loading');
     
     try {
-      // Initialize EmailJS with your public key
-      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '');
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
       
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-        {
-          subscriber_email: email,
+      if (!accessKey) {
+        throw new Error('Web3Forms access key is not configured');
+      }
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          email: email,
+          subject: 'New Newsletter Subscription',
+          message: `New subscriber: ${email}`,
           to_email: 'subscribe@n30digital.com',
-        }
-      );
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to subscribe');
+      }
 
       setSubscribeStatus('success');
       setSubscribeMessage('✓ Successfully subscribed! Check your email for confirmation.');
