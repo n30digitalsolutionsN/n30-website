@@ -48,11 +48,11 @@ export const metadata: Metadata = {
     description: "Affordable web design, development, and digital solutions for Lae businesses. We transform local companies with modern digital presence.",
     images: [
       {
-        url: "https://n30-website.vercel.app/og-image.jpg",
+        url: "https://n30-website.vercel.app/logo.png",
         width: 1200,
         height: 630,
         alt: "N30 Digital Solutions - Digital Agency Lae PNG",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "N30 Digital Solutions - Lae's Premier Digital Agency",
     description: "Transform your business with affordable, professional digital solutions. Web design, development & more.",
-    images: ["https://n30-website.vercel.app/og-image.jpg"],
+    images: ["https://n30-website.vercel.app/logo.png"],
     creator: "@n30digital",
   },
   robots: {
