@@ -3,7 +3,6 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaCalendar, FaUser, FaArrowRight } from 'react-icons/fa';
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -97,105 +96,102 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Modern Gradient */}
-      <section className="relative pt-32 pb-32 px-4 bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 right-20 w-72 h-72 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 left-20 w-72 h-72 bg-cyan-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      {/* Hero Section - Clean & Professional */}
+      <section className="relative pt-28 pb-28 px-4 bg-slate-900 text-white overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
         </div>
 
         <div className="relative container mx-auto max-w-6xl text-center">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight">Our <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Blog</span></h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Insights, tips, and thoughts on digital transformation
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-white">Blog</h1>
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Insights and practical guides for digital transformation
           </p>
         </div>
       </section>
 
-      {/* Search Section */}
-      <section className="py-12 px-4 bg-white border-b">
+      {/* Search Section - Professional */}
+      <section className="py-16 px-4 bg-slate-50 border-b border-gray-200">
         <div className="container mx-auto max-w-4xl">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search articles..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-6 py-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue-600 transition"
-            />
-            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+          <div className="flex flex-col gap-6">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search articles..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition text-gray-900"
+              />
+              <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            {searchTerm && (
+              <p className="text-sm text-gray-600">
+                Showing {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''} matching "<span className="font-medium">{searchTerm}</span>"
+              </p>
+            )}
           </div>
-          {searchTerm && (
-            <p className="mt-4 text-gray-600">
-              Found {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''} matching "{searchTerm}"
-            </p>
-          )}
         </div>
       </section>
 
       {/* Blog Posts */}
-      <section className="py-20 px-4 bg-linear-to-b from-white to-gray-50">
+      <section className="py-24 px-4 bg-white">
         <div className="container mx-auto max-w-5xl">
           {filteredPosts.length > 0 ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-10">
+            <div className="space-y-8">
               {filteredPosts.map((post) => (
                 <Link key={post.id} href={`/blog/${post.slug}`}>
-                  <article className="group h-full bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-blue-400 shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col">
-                    {/* Image Section */}
-                    <div className="relative h-56 md:h-64 overflow-hidden bg-gray-200">
+                  <article className="group flex gap-6 md:gap-8 pb-8 border-b border-gray-200 hover:no-underline transition-all last:border-b-0 cursor-pointer">
+                    {/* Image */}
+                    <div className="flex-shrink-0 w-40 h-40 md:w-48 md:h-48 rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
                       {post.image ? (
                         <Image
                           src={post.image}
                           alt={post.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          width={200}
+                          height={200}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
-                        <div className="w-full h-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                          <span className="text-white text-6xl">📝</span>
+                        <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="w-8 h-8 mx-auto bg-gray-300 rounded-sm mb-2"></div>
+                            <div className="text-xs text-gray-400">No Image</div>
+                          </div>
                         </div>
                       )}
-                      {/* Category Badge */}
-                      <div className="absolute top-4 right-4">
-                        <span className="bg-blue-600 text-white px-4 py-2 rounded-full font-semibold text-sm shadow-lg">
-                          {post.category}
-                        </span>
-                      </div>
                     </div>
 
-                    {/* Content Section */}
-                    <div className="p-6 md:p-8 flex flex-col grow">
-                      {/* Title */}
-                      <h2 className="text-2xl md:text-xl lg:text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-                        {post.title}
-                      </h2>
-
-                      {/* Summary */}
-                      <p className="text-gray-600 text-base mb-6 grow line-clamp-3">
-                        {post.summary}
-                      </p>
-
-                      {/* Meta Information */}
-                      <div className="border-t border-gray-200 pt-4">
-                        <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-gray-500 mb-4">
-                          <div className="flex items-center gap-2">
-                            <FaCalendar size={14} />
-                            <span>{post.date}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <FaUser size={14} />
-                            <span>{post.author}</span>
-                          </div>
-                          {post.readTime && (
-                            <span className="text-gray-500">{post.readTime}</span>
-                          )}
+                    {/* Content */}
+                    <div className="flex-1 flex flex-col justify-between">
+                      {/* Header */}
+                      <div>
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">{post.category}</span>
+                          <span className="text-gray-300">•</span>
+                          <span className="text-xs text-gray-500">{post.readTime}</span>
                         </div>
+                        
+                        <h2 className="text-2xl md:text-xl lg:text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-snug">
+                          {post.title}
+                        </h2>
+                        
+                        <p className="text-gray-600 text-base leading-relaxed">
+                          {post.summary}
+                        </p>
+                      </div>
 
-                        {/* Read More Button */}
-                        <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
-                          Read More
-                          <FaArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      {/* Footer */}
+                      <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
+                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                          <span>{post.author}</span>
+                          <span>•</span>
+                          <span>{post.date}</span>
+                        </div>
+                        <div className="text-blue-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                          Read Article →
                         </div>
                       </div>
                     </div>
@@ -204,15 +200,24 @@ export default function Blog() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-20">
-              <div className="text-7xl mb-6">🔍</div>
-              <p className="text-2xl font-bold text-gray-900 mb-3">No articles found</p>
-              <p className="text-lg text-gray-600 mb-6">No articles match your search for "{searchTerm}"</p>
+            <div className="text-center py-24">
+              <div className="mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
+                  <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No articles found</h3>
+              <p className="text-gray-600 mb-6">No articles match your search for "<span className="font-medium">{searchTerm}</span>"</p>
               <button
                 onClick={() => setSearchTerm('')}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-colors"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
               >
                 Clear search
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
               </button>
             </div>
           )}
@@ -220,13 +225,13 @@ export default function Blog() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-linear-to-r from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Stay Updated</h2>
-          <p className="text-xl mb-8 text-blue-50">
-            Subscribe to our newsletter for the latest insights and tips
+      <section className="py-20 px-4 bg-slate-900 text-white border-t">
+        <div className="container mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Informed</h2>
+          <p className="text-lg text-slate-300 mb-8">
+            Subscribe to our newsletter for insights on digital transformation
           </p>
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
@@ -234,19 +239,19 @@ export default function Blog() {
               onChange={(e) => setEmail(e.target.value)}
               required
               disabled={subscribeStatus === 'loading'}
-              className="flex-1 px-6 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-50"
+              className="flex-1 px-5 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 text-gray-900"
             />
             <button
               type="submit"
               disabled={subscribeStatus === 'loading'}
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold transition-colors whitespace-nowrap disabled:opacity-50"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap disabled:opacity-50"
             >
               {subscribeStatus === 'loading' ? 'Subscribing...' : 'Subscribe'}
             </button>
           </form>
           {subscribeMessage && (
             <p className={`mt-4 text-sm ${
-              subscribeStatus === 'success' ? 'text-green-100' : 'text-red-100'
+              subscribeStatus === 'success' ? 'text-green-300' : 'text-red-300'
             }`}>
               {subscribeMessage}
             </p>
