@@ -2,35 +2,6 @@
 
 import Link from 'next/link';
 import { FaCheckCircle, FaArrowRight, FaStar } from 'react-icons/fa';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Pricing & Plans - N30 Digital Solutions',
-  description: 'Affordable web design and development packages for businesses in Lae, PNG. Flexible pricing to fit your budget and needs.',
-  keywords: ['pricing', 'plans', 'web design pricing', 'development packages', 'affordable', 'Lae'],
-  openGraph: {
-    title: 'Pricing Plans - N30 Digital Solutions',
-    description: 'Transparent, affordable pricing for web design, development, and digital solutions.',
-    url: 'https://n30-website.vercel.app/pricing',
-    siteName: 'N30 Digital Solutions',
-    images: [
-      {
-        url: 'https://n30-website.vercel.app/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'N30 Pricing Plans',
-        type: 'image/png',
-      },
-    ],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Affordable Pricing Plans',
-    description: 'Flexible packages to fit your business needs and budget',
-    images: ['https://n30-website.vercel.app/logo.png'],
-  },
-};
 
 export default function Pricing() {
   const packages = [

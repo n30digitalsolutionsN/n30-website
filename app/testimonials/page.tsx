@@ -3,35 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaStar, FaQuoteLeft, FaArrowRight } from 'react-icons/fa';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Client Testimonials - N30 Digital Solutions',
-  description: 'Read what our clients say about working with N30 Digital Solutions. Success stories from Lae businesses and organizations.',
-  keywords: ['testimonials', 'client reviews', 'success stories', 'case studies', 'feedback'],
-  openGraph: {
-    title: 'Client Testimonials - N30 Digital Solutions',
-    description: 'See what our happy clients have to say about our web design and development services.',
-    url: 'https://n30-website.vercel.app/testimonials',
-    siteName: 'N30 Digital Solutions',
-    images: [
-      {
-        url: 'https://n30-website.vercel.app/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'Testimonials',
-        type: 'image/png',
-      },
-    ],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Client Testimonials',
-    description: 'Read success stories from our happy clients',
-    images: ['https://n30-website.vercel.app/logo.png'],
-  },
-};
 
 export default function Testimonials() {
   const testimonials = [

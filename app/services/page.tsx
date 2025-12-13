@@ -14,35 +14,6 @@ import {
   FaStar,
   FaCheckCircle,
 } from 'react-icons/fa';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Web Design & Development Services - N30 Digital Solutions',
-  description: 'Comprehensive digital services including web design, web development, mobile apps, e-commerce, SEO, and digital strategy for Lae businesses.',
-  keywords: ['web design', 'web development', 'mobile app', 'e-commerce', 'SEO', 'digital strategy', 'Lae'],
-  openGraph: {
-    title: 'Digital Services - N30 Digital Solutions',
-    description: 'Professional web design, development, and digital solutions tailored for your business needs.',
-    url: 'https://n30-website.vercel.app/services',
-    siteName: 'N30 Digital Solutions',
-    images: [
-      {
-        url: 'https://n30-website.vercel.app/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'N30 Digital Services',
-        type: 'image/png',
-      },
-    ],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Our Digital Services',
-    description: 'Professional web design, development & digital solutions',
-    images: ['https://n30-website.vercel.app/logo.png'],
-  },
-};
 
 export default function Services() {
   const services = [

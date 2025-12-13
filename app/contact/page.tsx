@@ -2,35 +2,6 @@
 
 import { useState } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Contact Us - N30 Digital Solutions',
-  description: 'Get in touch with N30 Digital Solutions. Located in Lae, Papua New Guinea. We\'re ready to help transform your digital presence.',
-  keywords: ['contact', 'get in touch', 'Lae', 'PNG', 'support', 'inquiry'],
-  openGraph: {
-    title: 'Contact N30 Digital Solutions',
-    description: 'Reach out to discuss your digital project. We\'re based in Lae, PNG.',
-    url: 'https://n30-website.vercel.app/contact',
-    siteName: 'N30 Digital Solutions',
-    images: [
-      {
-        url: 'https://n30-website.vercel.app/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'Contact N30',
-        type: 'image/png',
-      },
-    ],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact N30 Digital Solutions',
-    description: 'Get in touch with our team in Lae, PNG',
-    images: ['https://n30-website.vercel.app/logo.png'],
-  },
-};
 
 export default function Contact() {
   const [formData, setFormData] = useState({

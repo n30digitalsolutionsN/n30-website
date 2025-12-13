@@ -3,36 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaCalendar, FaUser, FaArrowLeft, FaTimes, FaCheckCircle } from 'react-icons/fa';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: '5 Digital Mistakes Small Businesses Make (And How to Fix Them)',
-  description: 'Avoid these common digital mistakes that are costing small businesses money and customers. Learn proven solutions from N30 Digital.',
-  keywords: ['small business mistakes', 'digital marketing', 'website optimization', 'business growth', 'digital strategy'],
-  openGraph: {
-    title: '5 Digital Mistakes Small Businesses Make - N30 Digital Solutions',
-    description: 'Discover the 5 most common digital mistakes small businesses make and practical solutions to fix them.',
-    url: 'https://n30-website.vercel.app/blog/5-digital-mistakes-small-businesses',
-    siteName: 'N30 Digital Solutions',
-    images: [
-      {
-        url: 'https://n30-website.vercel.app/logo.png',
-        width: 1200,
-        height: 630,
-        alt: '5 Digital Mistakes',
-        type: 'image/png',
-      },
-    ],
-    type: 'article',
-    publishedTime: '2025-12-01',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: '5 Digital Mistakes Small Businesses Make',
-    description: 'Avoid costly digital mistakes that hurt your business',
-    images: ['https://n30-website.vercel.app/logo.png'],
-  },
-};
 
 export default function FiveDigitalMistakes() {
 
