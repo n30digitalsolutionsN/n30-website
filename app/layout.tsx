@@ -28,6 +28,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://n30-website.vercel.app"),
   title: "N30 Digital Solutions - Web Design & Development in Lae, Papua New Guinea",
   description: "Premier digital agency in Lae, PNG. We deliver affordable, high-impact web design, development, and digital solutions for local businesses. Transform your online presence today.",
   keywords: "web design, web development, digital solutions, Lae, Papua New Guinea, business website, e-commerce, SEO, digital agency",
@@ -135,9 +136,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://n30-website.vercel.app" />
-        
         {/* Structured Data - Organization Schema */}
         <script
           type="application/ld+json"
