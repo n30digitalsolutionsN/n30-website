@@ -1,55 +1,40 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaCode, FaDatabase, FaShieldAlt, FaUser, FaCalendar } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Building the Butibam Mantics Rugby Team Website - N30 Digital Solutions',
+  description: 'How modern web development transformed a local Lae rugby club with a complete digital upgrade, integrated database, and admin management tools.',
+  keywords: ['rugby', 'web development', 'case study', 'Lae', 'digital solutions'],
+  openGraph: {
+    title: 'Building the Butibam Mantics Rugby Team Website - N30 Digital Solutions',
+    description: 'How modern web development transformed a local Lae rugby club with a complete digital upgrade, integrated database, and admin management tools.',
+    url: 'https://n30-website.vercel.app/blog/butibam-mantics-case-study',
+    siteName: 'N30 Digital Solutions',
+    images: [
+      {
+        url: 'https://n30-website.vercel.app/mantics-hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Butibam Mantics Rugby Team Website',
+        type: 'image/png',
+      },
+    ],
+    type: 'article',
+    publishedTime: '2025-12-09',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Building the Butibam Mantics Rugby Team Website - N30 Digital Solutions',
+    description: 'Professional digital transformation for a local rugby club',
+    images: ['https://n30-website.vercel.app/mantics-hero.png'],
+  },
+};
 
 export default function ManticsCaseStudy() {
-  useEffect(() => {
-    // Add meta tags dynamically for social sharing
-    const baseUrl = 'https://n30-website.vercel.app';
-    const metaTags = [
-      { property: 'og:title', content: 'Building the Butibam Mantics Rugby Team Website - N30 Digital Solutions' },
-      { property: 'og:description', content: 'How modern web development transformed a local Lae rugby club with a complete digital upgrade, integrated database, and admin management tools.' },
-      { property: 'og:image', content: `${baseUrl}/mantics-hero.png` },
-      { property: 'og:url', content: `${baseUrl}/blog/butibam-mantics-case-study` },
-      { property: 'og:type', content: 'article' },
-      { property: 'og:site_name', content: 'N30 Digital Solutions' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: 'Building the Butibam Mantics Rugby Team Website' },
-      { name: 'twitter:description', content: 'Professional digital transformation for a local rugby club' },
-      { name: 'twitter:image', content: `${baseUrl}/mantics-hero.png` },
-      { name: 'description', content: 'Explore how N30 Digital Solutions built a professional website for Butibam Mantics Rugby Team with database integration and admin dashboard.' },
-    ];
 
-    metaTags.forEach(tag => {
-      const element = document.createElement('meta');
-      if (tag.property) {
-        element.setAttribute('property', tag.property);
-      } else if (tag.name) {
-        element.setAttribute('name', tag.name);
-      }
-      element.setAttribute('content', tag.content);
-      document.head.appendChild(element);
-    });
-
-    return () => {
-      // Cleanup: remove meta tags when component unmounts
-      metaTags.forEach(tag => {
-        const element = document.querySelector(
-          tag.property 
-            ? `meta[property="${tag.property}"]`
-            : `meta[name="${tag.name}"]`
-        );
-        if (element) {
-          element.remove();
-        }
-      });
-    };
-  }, []);
-
-  const features = [
+const features = [
     {
       icon: '🎨',
       title: 'Modern Design',
