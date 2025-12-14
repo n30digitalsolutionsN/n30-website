@@ -110,10 +110,10 @@ export default function Home() {
             We're a local PNG startup empowering Lae businesses with affordable, high-impact digital solutions. Your growth is our mission.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-10 mt-8">
-            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium"></span>
-            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium"></span>
-            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium"></span>
+          <div className="flex flex-wrap justify-center gap-4 mb-10 mt-8">
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium">Modern Technology</span>
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium">Affordable Pricing</span>
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-100 text-sm font-medium">Local Support</span>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -164,7 +164,7 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-24">
             <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-6 leading-tight">
-              Why Choose <span className="bg-linear-to-r from-blue-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">N<span className="font-bebas-neue text-7xl md:text-8xl font-black italic" style={{letterSpacing: '-3px', fontVariationSettings: '"wght" 700'}}>30</span> Digital</span>
+              Why Choose <span className="bg-linear-to-r from-blue-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">N30 Digital</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               We combine cutting-edge technology with strategic thinking to deliver exceptional results
@@ -245,7 +245,7 @@ export default function Home() {
                   </p>
                   <Link
                     href="/services"
-                    className="inline-flex items-center gap-3 text-blue-600 hover:text-blue-700 font-semibold transition-all duration-300 group-hover:gap-4 group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-blue-600 group-hover:to-cyan-600 group-hover:bg-clip-text"
+                    className="inline-flex items-center gap-3 text-blue-600 hover:text-blue-700 font-semibold transition-all duration-300 group-hover:gap-4"
                   >
                     Discover More <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -369,6 +369,82 @@ export default function Home() {
               className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               Contact Us <FaArrowRight />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio / Case Studies Gallery */}
+      <section className="py-32 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Our <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Work & Projects</span></h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See the real results we've delivered for Lae businesses
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Butibam Mantics Case Study */}
+            <Link href="/blog/butibam-mantics-case-study" className="group">
+              <div className="relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
+                {/* Image Container */}
+                <div className="relative h-64 md:h-80 bg-gray-200 overflow-hidden">
+                  <Image
+                    src="/mantics-hero.png"
+                    alt="Butibam Mantics Website Project"
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500"></div>
+                </div>
+
+                {/* Content */}
+                <div className="p-8 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Butibam Mantics Rugby Website</h3>
+                    <p className="text-gray-600 mb-4">Professional website with team roster, match tracking, and admin dashboard for a local Lae rugby union team.</p>
+                  </div>
+                  <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all">
+                    View Case Study <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Coming Soon Project */}
+            <div className="group">
+              <div className="relative rounded-2xl overflow-hidden bg-linear-to-br from-blue-100 to-cyan-100 shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
+                {/* Image Container */}
+                <div className="relative h-64 md:h-80 bg-linear-to-br from-blue-200 to-cyan-200 flex items-center justify-center overflow-hidden">
+                  <div className="text-center">
+                    <div className="text-7xl mb-4">🚀</div>
+                    <p className="text-lg font-semibold text-blue-900">Next Project Coming Soon</p>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-8 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Your Success Story</h3>
+                    <p className="text-gray-600 mb-4">We're constantly working on new projects for innovative Lae businesses. Could your company be next?</p>
+                  </div>
+                  <div className="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all">
+                    Let's Build Together <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-lg text-gray-600 mb-6">Ready to see your business on this gallery?</p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              Start Your Project <FaArrowRight />
             </Link>
           </div>
         </div>
@@ -513,7 +589,7 @@ export default function Home() {
                     <p className="text-gray-600 text-sm font-semibold mb-2">BEFORE</p>
                     <p className="text-3xl font-black text-gray-400">No Digital Presence</p>
                   </div>
-                  
+
                   <div className="flex justify-center">
                     <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center text-2xl">
                       ↓
@@ -601,7 +677,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-16 bg-linear-to-r from-blue-600/10 to-cyan-600/10 rounded-2xl p-10 border border-blue-200">
+          <div className="mt-16 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-2xl p-10 border border-blue-200">
             <p className="text-center text-gray-700 text-lg leading-relaxed">
               <span className="font-bold text-blue-600">Limited Slots Available:</span> As a new agency, we're taking on a limited number of clients to ensure exceptional quality and personal attention. Be part of our founding client success stories.
             </p>

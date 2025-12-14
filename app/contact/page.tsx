@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Contact() {
@@ -239,6 +240,103 @@ export default function Contact() {
                 <p className="text-center text-gray-600 mt-4 text-sm">
                   What3Words: <span className="font-mono font-bold text-blue-600">72G8+95G</span> • Butibam, Lae, Morobe Province
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Office Gallery Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Visit Our <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Office</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Located in Butibam, Lae - we'd love to meet you in person
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Office Location Photo */}
+            <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+              <div className="relative h-80 bg-gray-200 overflow-hidden">
+                <Image
+                  src="/office-location.jpg"
+                  alt="N30 Digital Office Location"
+                  width={500}
+                  height={400}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8 bg-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">📍 Office Location</h3>
+                <p className="text-gray-600 mb-4">Our office is located in the heart of Butibam, Lae. Easy to find and always welcoming to clients and partners.</p>
+                <p className="text-blue-600 font-semibold">Room 1, Butibam Resource Centre</p>
+              </div>
+            </div>
+
+            {/* Founder Photo */}
+            <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+              <div className="relative h-80 bg-gray-200 overflow-hidden">
+                <Image
+                  src="/founder-working.jpg"
+                  alt="Founder Elton Neo"
+                  width={500}
+                  height={400}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8 bg-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">👨‍💼 Meet the Founder</h3>
+                <p className="text-gray-600 mb-4">Elton Neo, founder of N30 Digital, is passionate about empowering Lae businesses with cutting-edge digital solutions.</p>
+                <p className="text-blue-600 font-semibold">Available for consultations</p>
+              </div>
+            </div>
+
+            {/* Team Workspace */}
+            <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+              <div className="relative h-80 bg-gray-200 overflow-hidden">
+                <Image
+                  src="/ide-workspace.jpg"
+                  alt="N30 Digital Development Studio"
+                  width={500}
+                  height={400}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8 bg-white">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">💻 Development Studio</h3>
+                <p className="text-gray-600 mb-4">Our modern development workspace is equipped with cutting-edge tools and technology to build premium digital solutions.</p>
+                <p className="text-blue-600 font-semibold">State-of-the-art equipment</p>
+              </div>
+            </div>
+
+            {/* Hours & Availability */}
+            <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-linear-to-br from-blue-50 to-cyan-50">
+              <div className="h-80 p-8 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">⏰ Office Hours</h3>
+                  <div className="space-y-4 text-gray-700">
+                    <div className="flex justify-between items-center pb-3 border-b border-gray-300">
+                      <span className="font-semibold">Monday - Friday</span>
+                      <span>9:00 AM - 5:00 PM</span>
+                    </div>
+                    <div className="flex justify-between items-center pb-3 border-b border-gray-300">
+                      <span className="font-semibold">Saturday</span>
+                      <span>10:00 AM - 2:00 PM</span>
+                    </div>
+                    <div className="flex justify-between items-center text-red-600">
+                      <span className="font-semibold">Sunday</span>
+                      <span>Closed</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-6 border-t border-gray-300">
+                  <p className="text-sm text-gray-600 mb-3">💬 Available via WhatsApp 24/7 for urgent matters</p>
+                  <p className="text-xs text-blue-600 font-semibold">Response time: Usually within 2 hours</p>
+                </div>
               </div>
             </div>
           </div>

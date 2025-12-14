@@ -145,7 +145,7 @@ export default function Blog() {
                 <Link key={post.id} href={`/blog/${post.slug}`}>
                   <article className="group flex gap-6 md:gap-8 pb-8 border-b border-gray-200 hover:no-underline transition-all last:border-b-0 cursor-pointer">
                     {/* Image */}
-                    <div className="flex-shrink-0 w-40 h-40 md:w-48 md:h-48 rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
+                    <div className="shrink-0 w-40 h-40 md:w-48 md:h-48 rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
                       {post.image ? (
                         <Image
                           src={post.image}
@@ -155,7 +155,7 @@ export default function Blog() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                        <div className="w-full h-full bg-linear-to-br from-gray-100 to-gray-200 flex items-center justify-center">
                           <div className="text-center">
                             <div className="w-8 h-8 mx-auto bg-gray-300 rounded-sm mb-2"></div>
                             <div className="text-xs text-gray-400">No Image</div>

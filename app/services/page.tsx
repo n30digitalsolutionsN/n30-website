@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   FaCode,
   FaDesktop,
@@ -176,6 +177,100 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Service Examples Gallery */}
+      <section className="py-32 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              See Our <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Services In Action</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Real examples of how we deliver exceptional digital solutions
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Web Design Example */}
+            <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+              <div className="relative h-64 md:h-80 bg-linear-to-br from-blue-100 to-cyan-100 flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/founder-working.jpg"
+                  alt="Web Design Example"
+                  width={500}
+                  height={350}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">🎨 Web Design & UI/UX</h3>
+                <p className="text-gray-600">Beautiful, user-focused designs that engage visitors and drive conversions. Mobile-first, fast-loading, and optimized for all devices.</p>
+              </div>
+            </div>
+
+            {/* Web Development Example */}
+            <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+              <div className="relative h-64 md:h-80 bg-linear-to-br from-blue-100 to-cyan-100 flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/ide-workspace.jpg"
+                  alt="Web Development Example"
+                  width={500}
+                  height={350}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">⚙️ Web Development</h3>
+                <p className="text-gray-600">Robust, scalable applications built with modern tech stacks. From databases to API integrations - we handle the complexity.</p>
+              </div>
+            </div>
+
+            {/* Case Study Example */}
+            <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+              <div className="relative h-64 md:h-80 bg-linear-to-br from-blue-100 to-cyan-100 flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/mantics-hero.png"
+                  alt="Butibam Mantics Project"
+                  width={500}
+                  height={350}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">🏆 Complete Solutions</h3>
+                <p className="text-gray-600">Like our Butibam Mantics project - combining design, development, admin dashboards, and team management systems.</p>
+              </div>
+            </div>
+
+            {/* Office Location Example */}
+            <div className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+              <div className="relative h-64 md:h-80 bg-linear-to-br from-blue-100 to-cyan-100 flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/office-location.jpg"
+                  alt="N30 Digital Office"
+                  width={500}
+                  height={350}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">🏢 Local Lae Team</h3>
+                <p className="text-gray-600">Based right here in Lae, we're invested in your success. Visit our office to meet the team behind your project.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-lg text-gray-600 mb-6">Ready to start your project?</p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              Schedule Consultation <FaArrowRight />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Premium Process Section */}
       <section className="py-32 px-4 bg-linear-to-b from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
         {/* Animated background */}
@@ -196,7 +291,7 @@ export default function Services() {
             <div className="hidden md:block absolute top-1/4 left-0 right-0 h-1 bg-linear-to-r from-blue-500 via-cyan-500 to-blue-500"></div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-              {[
+              {[ 
                 { step: '01', title: 'Discovery', description: 'Deep-dive into your business goals, challenges, and vision for success' },
                 { step: '02', title: 'Strategy', description: 'Create comprehensive roadmaps and technical architecture for your project' },
                 { step: '03', title: 'Execution', description: 'Build premium solutions with cutting-edge technologies and best practices' },

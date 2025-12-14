@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaCheckCircle, FaArrowRight, FaStar } from 'react-icons/fa';
 
 export default function Pricing() {
@@ -207,9 +208,185 @@ export default function Pricing() {
               Let's Discuss Your Project
             </Link>
           </div>
+        </div>
+      </section> {/* <-- ADDED missing closing tag for Pricing Cards section */}
 
-          {/* Why Choose Our Pricing */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      {/* Why Choose Our Pricing */}
+      <section className="py-24 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              How We <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Work With You</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our transparent, collaborative process ensures you get exactly what you need
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {/* Step 1: Consultation */}
+            <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="relative h-48 bg-linear-to-br from-blue-100 to-cyan-100 flex items-center justify-center overflow-hidden">
+                <div className="text-6xl">📋</div>
+              </div>
+              <div className="p-6">
+                <div className="text-3xl font-black text-blue-600 mb-2">1</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Free Consultation</h3>
+                <p className="text-gray-600 text-sm">We meet to understand your goals, budget, and vision for success</p>
+              </div>
+            </div>
+
+            {/* Step 2: Quote */}
+            <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="relative h-48 bg-linear-to-br from-blue-100 to-cyan-100 flex items-center justify-center overflow-hidden">
+                <div className="text-6xl">💰</div>
+              </div>
+              <div className="p-6">
+                <div className="text-3xl font-black text-blue-600 mb-2">2</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Custom Quote</h3>
+                <p className="text-gray-600 text-sm">We provide a transparent quote with clear deliverables and timeline</p>
+              </div>
+            </div>
+
+            {/* Step 3: Development */}
+            <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="relative h-48 bg-linear-to-br from-blue-100 to-cyan-100 flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/ide-workspace.jpg"
+                  alt="Development Process"
+                  width={300}
+                  height={200}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <div className="text-3xl font-black text-blue-600 mb-2">3</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">We Build It</h3>
+                <p className="text-gray-600 text-sm">Our team creates your solution with regular updates and communication</p>
+              </div>
+            </div>
+
+            {/* Step 4: Launch */}
+            <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="relative h-48 bg-linear-to-br from-blue-100 to-cyan-100 flex items-center justify-center overflow-hidden">
+                <div className="text-6xl">🚀</div>
+              </div>
+              <div className="p-6">
+                <div className="text-3xl font-black text-blue-600 mb-2">4</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Launch & Support</h3>
+                <p className="text-gray-600 text-sm">We deploy your project and provide ongoing support and optimization</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline Examples */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Startup Timeline */}
+            <div className="bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Startup Presence Timeline</h3>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Week 1</p>
+                    <p className="text-sm text-gray-600">Consultation & requirements gathering</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Week 2-3</p>
+                    <p className="text-sm text-gray-600">Design & development</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">✓</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Ready to Launch</p>
+                    <p className="text-sm text-gray-600">2-3 weeks total</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Professional Timeline */}
+            <div className="bg-linear-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-2 border-blue-600 shadow-lg">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold">RECOMMENDED</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Professional Web Timeline</h3>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Week 1-2</p>
+                    <p className="text-sm text-gray-600">Discovery & strategy</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Week 3-5</p>
+                    <p className="text-sm text-gray-600">Design & development</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Week 6</p>
+                    <p className="text-sm text-gray-600">Testing & refinement</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">✓</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Ready to Launch</p>
+                    <p className="text-sm text-gray-600">4-6 weeks total</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Enterprise Timeline */}
+            <div className="bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Enterprise Solution Timeline</h3>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Week 1-3</p>
+                    <p className="text-sm text-gray-600">In-depth discovery & planning</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Week 4-9</p>
+                    <p className="text-sm text-gray-600">Full development & integration</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Week 10-12</p>
+                    <p className="text-sm text-gray-600">Testing, optimization & launch</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="shrink-0 w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">✓</div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Ready to Launch</p>
+                    <p className="text-sm text-gray-600">6-12 weeks total</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Our Pricing */}
+      <section className="py-24 px-4 bg-linear-to-b from-gray-50 to-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-5xl mb-4">💰</div>
               <h4 className="text-xl font-bold text-gray-900 mb-2">No Hidden Fees</h4>
@@ -274,6 +451,7 @@ export default function Pricing() {
           </Link>
         </div>
       </section>
+
     </div>
   );
 }

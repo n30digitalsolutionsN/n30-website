@@ -138,6 +138,78 @@ export default function About() {
         </div>
       </section>
 
+      {/* About the Founder - Photo Cards Section */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Behind the Vision</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Get to know the founder and the workspace that drives our innovation
+            </p>
+          </div>
+
+          {/* Photo Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Working Photo Card */}
+            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
+              <div className="absolute inset-0 bg-linear-to-br from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+              <div className="bg-gray-200 aspect-square flex items-center justify-center overflow-hidden relative">
+                <Image
+                  src="/founder-working.jpg"
+                  alt="Elton Neo working on projects"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500"></div>
+              </div>
+              <div className="p-6 bg-white">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">👨‍💼 Founder at Work</h3>
+                <p className="text-gray-600">Dedicated to delivering excellence on every project</p>
+              </div>
+            </div>
+
+            {/* Office Location Photo Card */}
+            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
+              <div className="absolute inset-0 bg-linear-to-br from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+              <div className="bg-gray-200 aspect-square flex items-center justify-center overflow-hidden relative">
+                <Image
+                  src="/office-location.jpg"
+                  alt="N30 Digital office location in Lae"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500"></div>
+              </div>
+              <div className="p-6 bg-white">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">🏢 Our Office</h3>
+                <p className="text-gray-600">Located right here in Lae, serving our community</p>
+              </div>
+            </div>
+
+            {/* IDE / Development Photo Card */}
+            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
+              <div className="absolute inset-0 bg-linear-to-br from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+              <div className="bg-gray-200 aspect-square flex items-center justify-center overflow-hidden relative">
+                <Image
+                  src="/ide-workspace.jpg"
+                  alt="Development IDE and coding workspace"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500"></div>
+              </div>
+              <div className="p-6 bg-white">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">💻 Development Studio</h3>
+                <p className="text-gray-600">Cutting-edge tools for creating modern web solutions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Team Section */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
