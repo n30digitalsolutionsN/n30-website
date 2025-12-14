@@ -38,18 +38,21 @@ export default function Home() {
       title: 'Web Design',
       description: 'Beautiful, conversion-optimized websites that reflect your brand and engage your audience.',
       icon: '🎨',
+      image: '/founder-working.jpg',
     },
     {
       id: 2,
       title: 'Web Development',
       description: 'Lightning-fast, scalable applications built with modern architecture and best practices.',
       icon: '⚙️',
+      image: '/ide-workspace.jpg',
     },
     {
       id: 3,
       title: 'Digital Strategy',
       description: 'Data-driven strategies that align technology with your business goals and market demands.',
       icon: '📊',
+      image: '/office-location.jpg',
     },
   ];
 
@@ -225,6 +228,17 @@ export default function Home() {
                 key={service.id}
                 className="group relative bg-white rounded-2xl border border-gray-200 hover:border-blue-400 shadow-md hover:shadow-2xl overflow-hidden transition-all duration-500 hover:-translate-y-4"
               >
+                {/* Image */}
+                <div className="relative h-48 bg-gray-200 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+
                 {/* Premium gradient card */}
                 <div className="absolute inset-0 bg-linear-to-br from-blue-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
